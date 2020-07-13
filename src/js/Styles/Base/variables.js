@@ -13,6 +13,7 @@ export const variables = {
 		blue: '#2B70BF',
 		biege: '#C3DAF5',
 		biege_dark: '#BFD8F6',
+		cream: '#F3F3F3',
 	},
 	fonts: {
 		popinsBold: 'Poppins-Bold',
