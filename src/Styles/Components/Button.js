@@ -3,7 +3,7 @@ import { variables, utils } from '../Base/';
 
 const { colors, fonts } = variables;
 export const buttonStyles = StyleSheet.create({
-	button: {
+	container: {
 		borderRadius: 10,
 		...utils.flex_centered,
 		marginTop: 10,

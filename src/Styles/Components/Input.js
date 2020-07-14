@@ -9,11 +9,15 @@ export const inputStyles = StyleSheet.create({
 		display: 'flex',
 		alignItems: 'center',
 		flexDirection: 'row',
+		paddingLeft: 10,
+		paddingRight: 10,
+		marginTop: 3,
 	},
 	inputWrapper: {
 		position: 'relative',
 		height: 40,
 		width: '100%',
+		marginTop: 10,
 	},
 	input: {
 		height: '100%',
@@ -26,5 +30,20 @@ export const inputStyles = StyleSheet.create({
 	},
 	cream: {
 		backgroundColor: colors.cream,
+	},
+	labelText: {
+		fontSize: 14,
+		fontFamily: fonts.popins,
+	},
+	labelIcon: {
+		height: 13,
+		width: 13,
+		paddingLeft: 10,
+	},
+	inputPrivateTogglerIcon: {
+		position: 'absolute',
+		top: '50%',
+		right: padding_left_right,
+		transform: 'translateY(-50%)',
 	},
 });

@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { buttonStyles } from '../Styles/Components/';
+import { buttonStyles } from '../../Styles/Components/';
 import PropsTypes from 'prop-types';
 
 export default function Button({ title, theme, size, content, action }) {
 	return (
 		<View
 			style={{
-				...buttonStyles.button,
+				...buttonStyles.container,
 				...buttonStyles[theme],
 				...buttonStyles[size],
 			}}
