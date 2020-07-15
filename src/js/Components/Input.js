@@ -4,7 +4,6 @@ import { inputStyles } from '../../Styles/Components/';
 import PropsTypes from 'prop-types';
 import icons from '../Utils/imageExporter';
 import { utils } from '../../Styles/Base/utils';
-import PhoneInput from 'react-native-phone-input';
 import CountryPicker from 'react-native-country-picker-modal';
 
 export default function Input({
@@ -32,7 +31,7 @@ export default function Input({
 					/>
 				);
 			case 'phone':
-				return <CountryPicker {...{ withCallingCode: true, withFlag: true }} />;
+				return <CountryPicker {...{ withCallingCode: true, withFlag: false }} />;
 		}
 	};
 

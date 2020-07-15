@@ -14,6 +14,7 @@ export const variables = {
 		biege: '#C3DAF5',
 		biege_dark: '#BFD8F6',
 		cream: '#F3F3F3',
+		green: '#4AC60C',
 	},
 	fonts: {
 		popinsBold: 'Poppins-Bold',

@@ -1,29 +1,31 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { buttonStyles } from '../../Styles/Components/';
 import PropsTypes from 'prop-types';
 
 export default function Button({ title, theme, size, content, action }) {
 	return (
-		<View
-			style={{
-				...buttonStyles.container,
-				...buttonStyles[theme],
-				...buttonStyles[size],
-			}}
-		>
-			{title && (
-				<Text
-					style={{
-						...buttonStyles.buttonTitle,
-						color: buttonStyles[theme].color,
-					}}
-				>
-					{title}
-				</Text>
-			)}
-			{content && <content />}
-		</View>
+		<TouchableOpacity>
+			<View
+				style={{
+					...buttonStyles.container,
+					...buttonStyles[theme],
+					...buttonStyles[size],
+				}}
+			>
+				{title && (
+					<Text
+						style={{
+							...buttonStyles.buttonTitle,
+							color: buttonStyles[theme].color,
+						}}
+					>
+						{title}
+					</Text>
+				)}
+				{content && <content />}
+			</View>
+		</TouchableOpacity>
 	);
 }
 
