@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { variables, utils } from '../Base/';
 
 const { colors, fonts } = variables;
+
 export const buttonStyles = StyleSheet.create({
 	container: {
 		borderRadius: 10,

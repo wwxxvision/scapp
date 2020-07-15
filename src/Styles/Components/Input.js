@@ -1,9 +1,11 @@
-import { variables } from '../Base/index';
+import { variables, utils } from '../Base/';
 import { StyleSheet } from 'react-native';
 
 const { colors, fonts } = variables;
 const padding_top_bottom = 10;
 const padding_left_right = 10;
+const inputHeight = 40;
+const iconSize = 13;
 export const inputStyles = StyleSheet.create({
 	inputLabel: {
 		display: 'flex',
@@ -15,12 +17,12 @@ export const inputStyles = StyleSheet.create({
 	},
 	inputWrapper: {
 		position: 'relative',
-		height: 40,
+		height: inputHeight,
 		width: '100%',
 		marginTop: 10,
 	},
 	input: {
-		height: '100%',
+		height: inputHeight,
 		width: '100%',
 		borderRadius: 5,
 		paddingHorizontal: padding_left_right,
@@ -34,16 +36,19 @@ export const inputStyles = StyleSheet.create({
 	labelText: {
 		fontSize: 14,
 		fontFamily: fonts.popins,
+		marginLeft: 10,
+		display: 'flex',
+		height: 'auto',
+		...utils.disableFontPadding,
 	},
 	labelIcon: {
-		height: 13,
-		width: 13,
-		paddingLeft: 10,
+		height: iconSize,
+		width: iconSize,
 	},
 	inputPrivateTogglerIcon: {
 		position: 'absolute',
 		top: '50%',
 		right: padding_left_right,
-		transform: 'translateY(-50%)',
+		transform: [{ translateY: -inputHeight / 2 + iconSize }],
 	},
 });

@@ -1,4 +1,4 @@
-import variables from './variables';
+import { variables } from './variables';
 
 export const utils = {
 	flex_centered: {
@@ -16,5 +16,8 @@ export const utils = {
 			default:
 				return variables.colors.white;
 		}
+	},
+	disableFontPadding: {
+		includeFontPadding: false,
 	},
 };

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Image } from 'react-native';
-import { inputStyles } from '../Styles/Components/';
+import { inputStyles } from '../../Styles/Components/';
 import PropsTypes from 'prop-types';
 import icons from '../Utils/imageExporter';
 import { utils } from '../../Styles/Base/utils';
+import PhoneInput from 'react-native-phone-input';
 
 export default function Input({
 	label,
@@ -14,19 +15,36 @@ export default function Input({
 	labelTheme,
 	action,
 }) {
-	const [privateInfoIsShowing, toggleShowingPrivateInfo] = useState(false);
+	const [privateInfoIsShowing, toggleForShowPrivateInfo] = useState(false);
 	const inputIsPrivate = type === 'private';
+	const Icon = icons[icon];
+	const OkoIcon = icons['oko'];
+	const getInputByType = () => {
+		switch (type) {
+			case 'private':
+			case 'text':
+				return (
+					<TextInput
+						placeholder={placeholder}
+						secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
+						style={{ ...inputStyles.input, ...inputStyles[theme] }}
+					/>
+				);
+			case 'phone':
+				return <PhoneInput />;
+		}
+	};
+
 	return (
 		<View>
 			<View style={inputStyles.inputLabel}>
 				{icon && (
-					<Image
-						source={icons[icon]}
-						style={{
-							...inputStyles.labelIcon,
-							fill: utils.getHexColorByTheme(labelTheme),
-						}}
-					/>
+					<View>
+						<Icon
+							{...inputStyles.labelIcon}
+							stroke={utils.getHexColorByTheme(labelTheme)}
+						/>
+					</View>
 				)}
 				<Text
 					style={{
@@ -38,16 +56,11 @@ export default function Input({
 				</Text>
 			</View>
 			<View style={inputStyles.inputWrapper}>
-				<TextInput
-					placeholder={placeholder}
-					secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
-					style={{ ...inputStyles.input, ...inputStyles[theme] }}
-				/>
+				{getInputByType()}
 				{inputIsPrivate && (
-					<Image
-						source={icons.oko}
-						style={inputStyles.inputPrivateTogglerIcon}
-					/>
+					<View style={inputStyles.inputPrivateTogglerIcon}>
+						<OkoIcon />
+					</View>
 				)}
 			</View>
 		</View>
