@@ -15,7 +15,7 @@ const App = () => {
 		},
 		{
 			id: 1,
-			title: 'United states of america United states of america',
+			title: 'United states of america ',
 			useIcon: true,
 			iconName: 'usa'
 		},

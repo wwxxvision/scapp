@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View} from 'react-native';
+import { View } from 'react-native';
 import { checkBoxStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
 import Done from '../../assets/img/done_icon.svg';

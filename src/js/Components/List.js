@@ -14,11 +14,15 @@ export default class List extends Component {
 		};
 	}
 
-	componentDidMount() {
+	initValues() {
 		if (this.props.initValue)
 			this.setState({
 				values: this.props.initValue,
 			});
+	}
+
+	componentDidMount() {
+		this.initValues();
 	}
 
 	checkedItem = (item) => {
@@ -75,7 +79,7 @@ export default class List extends Component {
 												})}
 											</View>
 										)}
-										<Text numberOfLines={1} style={listStyles.itemText(type)}>
+										<Text style={listStyles.itemText(type)}>
 											{element.title}
 										</Text>
 									</View>
@@ -141,12 +145,12 @@ export default class List extends Component {
 	}
 }
 
-CheckBox.defaultProps = {
-	type: 'radio'
+List.defaultProps = {
+	type: 'radio',
 };
 
-CheckBox.PropsTypes = {
+List.PropsTypes = {
 	type: PropsTypes.string,
 	elements: PropsTypes.array.isRequired,
-	initValue:PropsTypes.array
+	initValue: PropsTypes.array,
 };

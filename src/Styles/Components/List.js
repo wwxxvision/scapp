@@ -60,7 +60,6 @@ export const listStyles = StyleSheet.create({
 					color: colors.light_blue,
 					fontFamily: fonts.popins,
      paddingLeft: 16,
-     paddingRight: 16,
      maxWidth: 260
 				};
 
