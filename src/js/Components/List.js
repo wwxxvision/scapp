@@ -28,8 +28,21 @@ export default class List extends Component {
 		}
 	};
 
-	itemIsChecked = (item) =>
+	itemIsActive = (item) =>
 		this.state.values.find((value) => value.id === item.id);
+
+	selectItem = (item) => {
+		const { values } = this.state;
+		const itemIsAlreadySelected = values.find((value) => value.id === item.id);
+		if (!itemIsAlreadySelected)
+			this.setState({
+				values: [],
+			});
+
+		this.setState({
+			values: [item],
+		});
+	};
 
 	getListByType(type, elements) {
 		switch (type) {
@@ -41,7 +54,10 @@ export default class List extends Component {
 								index > 0 ? listStyles.listItemMargin(type) : null;
 
 							return (
-								<View style={{...listStyles.listItem(type), ...listItemMargins}} key={element.id}>
+								<View
+									key={element.id}
+									style={{ ...listStyles.listItem(type), ...listItemMargins }}
+								>
 									<View style={{ ...utils.flex('row'), alignItems: 'center' }}>
 										{element.useIcon && (
 											<View style={listStyles.iconOverlay}>
@@ -55,7 +71,13 @@ export default class List extends Component {
 											{element.title}
 										</Text>
 									</View>
-									<CheckBox />
+									<TouchableWithoutFeedback
+										onPress={() => this.selectItem(element)}
+									>
+										<View>
+											<CheckBox isChecked={() => this.itemIsActive(element)} />
+										</View>
+									</TouchableWithoutFeedback>
 								</View>
 							);
 						})}
@@ -82,7 +104,7 @@ export default class List extends Component {
 														element.iconName,
 														listStyles.itemIconSizeSmall
 													)}
-													{this.itemIsChecked(element) &&
+													{this.itemIsActive(element) &&
 														getIconByName('checked', {
 															style: {
 																position: 'absolute',
