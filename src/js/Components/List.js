@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, TouchableWithoutFeedback } from 'react-native';
 import CheckBox from './CheckBox';
 import { listStyles } from '../../Styles/Components';
 import { utils } from '../../Styles/Base';
@@ -12,6 +12,24 @@ export default class List extends Component {
 			values: [],
 		};
 	}
+
+	checkedItem = (item) => {
+		const { values } = this.state;
+		const itemIsAlreadyChecked = values.find((value) => value.id === item.id);
+		console.log(itemIsAlreadyChecked);
+		if (itemIsAlreadyChecked) {
+			this.setState({
+				values: values.filter((value) => value.id !== item.id),
+			});
+		} else {
+			this.setState({
+				values: [...values, item],
+			});
+		}
+	};
+
+	itemIsChecked = (item) =>
+		this.state.values.find((value) => value.id === item.id);
 
 	getListByType(type, elements) {
 		switch (type) {
@@ -43,30 +61,35 @@ export default class List extends Component {
 							const listItemMargins =
 								index > 0 ? listStyles.listItemMargin : null;
 							return (
-								<View
-									style={{ ...listStyles.listItem(type), ...listItemMargins }}
+								<TouchableWithoutFeedback
 									key={element.id}
+									onPress={() => this.checkedItem(element)}
 								>
-									{element.useIcon && (
-										<>
-											<View>
-												{getIconByName(
-													element.iconName,
-													listStyles.itemIconSizeSmall
-												)}
-												{getIconByName('checked', {
-													style: {
-														position: 'absolute',
-														...listStyles.itemIconChecked,
-													},
-												})}
-											</View>
-											<Text style={listStyles.itemText(type)}>
-												{element.title}
-											</Text>
-										</>
-									)}
-								</View>
+									<View
+										style={{ ...listStyles.listItem(type), ...listItemMargins }}
+									>
+										{element.useIcon && (
+											<>
+												<View>
+													{getIconByName(
+														element.iconName,
+														listStyles.itemIconSizeSmall
+													)}
+													{this.itemIsChecked(element) &&
+														getIconByName('checked', {
+															style: {
+																position: 'absolute',
+																...listStyles.itemIconChecked,
+															},
+														})}
+												</View>
+												<Text style={listStyles.itemText(type)}>
+													{element.title}
+												</Text>
+											</>
+										)}
+									</View>
+								</TouchableWithoutFeedback>
 							);
 						})}
 					</ScrollView>
