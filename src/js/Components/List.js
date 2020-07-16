@@ -16,7 +16,7 @@ export default class List extends Component {
 	checkedItem = (item) => {
 		const { values } = this.state;
 		const itemIsAlreadyChecked = values.find((value) => value.id === item.id);
-		console.log(itemIsAlreadyChecked);
+
 		if (itemIsAlreadyChecked) {
 			this.setState({
 				values: values.filter((value) => value.id !== item.id),

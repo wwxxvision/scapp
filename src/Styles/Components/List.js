@@ -11,7 +11,6 @@ export const listStyles = StyleSheet.create({
 					flexDirection: 'row',
 					alignItems: 'center',
 					justifyContent: 'space-between',
-					marginTop: 22,
 				};
 			case 'checkboxes':
 				return {
@@ -19,6 +18,8 @@ export const listStyles = StyleSheet.create({
 					alignItems: 'center',
 					flexDirection: 'column',
      maxWidth: 38,
+     paddingTop: 5,
+     paddingBottom: 5
 				};
 		}
 	},

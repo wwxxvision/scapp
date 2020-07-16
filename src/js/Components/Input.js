@@ -5,6 +5,7 @@ import PropsTypes from 'prop-types';
 import icons from '../Utils/imageExporter';
 import { utils } from '../../Styles/Base/utils';
 import CountryPicker from 'react-native-country-picker-modal';
+import getIconByName from '../Utils/getIconByName';
 
 export default function Input({
 	label,
@@ -17,8 +18,6 @@ export default function Input({
 }) {
 	const [privateInfoIsShowing, toggleForShowPrivateInfo] = useState(false);
 	const inputIsPrivate = type === 'private';
-	const Icon = icons[icon];
-	const OkoIcon = icons['oko'];
 	const getInputByType = () => {
 		switch (type) {
 			case 'private':
@@ -31,7 +30,9 @@ export default function Input({
 					/>
 				);
 			case 'phone':
-				return <CountryPicker {...{ withCallingCode: true, withFlag: false }} />;
+				return (
+					<CountryPicker {...{ withCallingCode: true, withFlag: false }} />
+				);
 		}
 	};
 
@@ -40,10 +41,10 @@ export default function Input({
 			<View style={inputStyles.inputLabel}>
 				{icon && (
 					<View>
-						<Icon
-							{...inputStyles.labelIcon}
-							stroke={utils.getHexColorByTheme(labelTheme)}
-						/>
+						{getIconByName(icon, {
+							...inputStyles.labelIcon,
+							stroke: utils.getHexColorByTheme(labelTheme),
+						})}
 					</View>
 				)}
 				<Text
@@ -59,7 +60,7 @@ export default function Input({
 				{getInputByType()}
 				{inputIsPrivate && (
 					<View style={inputStyles.inputPrivateTogglerIcon}>
-						<OkoIcon />
+						{getIconByName('oko')}
 					</View>
 				)}
 			</View>

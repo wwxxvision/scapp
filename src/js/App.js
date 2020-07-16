@@ -78,6 +78,7 @@ const App = () => {
 				{/* <Button theme="disable" title="Button" />
 				<Button theme="opacity" title="Button" /> */}
 				<List type="checkboxes" elements={fakelist} />
+				<List type="radio" elements={fakelist} />
 			</View>
 		</>
 	);
