@@ -32,7 +32,7 @@ export default class List extends Component {
 											})}
 										</View>
 									)}
-									<Text style={listStyles.itemText}>{element.title}</Text>
+									<Text style={listStyles.itemText(type)}>{element.title}</Text>
 								</View>
 								<CheckBox />
 							</View>
@@ -41,14 +41,26 @@ export default class List extends Component {
 				);
 			case 'checkboxes':
 				return (
-					<ScrollView horizontal={true} >
-							{elements.map((element) => (
-								<View style={listStyles.listItem(type)} key={element.id}>
+					<ScrollView horizontal={true}>
+						{elements.map((element, index) => {
+							const itemHasMargin =
+								index > 0 ? listStyles.listItemMargin : null;
+							return (
+								<View
+									style={{ ...listStyles.listItem(type), ...itemHasMargin }}
+									key={element.id}
+								>
 									{element.useIcon && (
-										<View>{this.getIconByName(element.iconName)}</View>
+										<>
+											<View>{this.getIconByName(element.iconName)}</View>
+											<Text style={listStyles.itemText(type)}>
+												{element.title}
+											</Text>
+										</>
 									)}
 								</View>
-							))}
+							);
+						})}
 					</ScrollView>
 				);
 		}

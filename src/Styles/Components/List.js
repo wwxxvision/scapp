@@ -10,35 +10,52 @@ export const listStyles = StyleSheet.create({
 					display: 'flex',
 					flexDirection: 'row',
 					alignItems: 'center',
-     justifyContent: 'space-between',
-     marginTop: 22
-    };
-   case 'checkboxes':
-    return {
-     display: 'flex',
-     alignItems: 'center',
-     flexDirection: 'row'
-    }
+					justifyContent: 'space-between',
+					marginTop: 22,
+				};
+			case 'checkboxes':
+				return {
+					display: 'flex',
+					alignItems: 'center',
+					flexDirection: 'column',
+     maxWidth: 38,
+				};
 		}
+	},
+	itemIcon: {
+		height: 40,
+		width: 40,
+		zIndex: 10,
  },
- itemIcon: {
-  height: 40,
-  width: 40,
-  zIndex: 10,
+ listItemMargin: {
+  marginLeft: 10
  },
- iconOverlay: {
-  height: overlayCircleSize,
-  width: overlayCircleSize,
-  backgroundColor: colors.cream,
-  borderRadius: 50,
-  position: 'relative',
-  ...utils.flex_centered
- },
- itemText: {
-  fontSize: 17,
-  color: colors.light_blue,
-  fontFamily: fonts.popins,
-  paddingLeft: 16
- }
- 
+	iconOverlay: {
+		height: overlayCircleSize,
+		width: overlayCircleSize,
+		backgroundColor: colors.cream,
+		borderRadius: 50,
+		position: 'relative',
+		...utils.flex_centered,
+	},
+	itemText: (type) => {
+		switch (type) {
+			case 'radio':
+				return {
+					fontSize: 17,
+					color: colors.light_blue,
+					fontFamily: fonts.popins,
+					paddingLeft: 16,
+				};
+
+			case 'checkboxes':
+				return {
+					fontSize: 8,
+					fontFamily: fonts.popins,
+					color: colors.dark_blue,
+					marginTop: 8,
+					textAlign: 'center',
+				};
+		}
+	},
 });
