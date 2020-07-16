@@ -35,8 +35,6 @@ const App = () => {
 				<Input label="Test" labelTheme="darkBlue" icon="birthDay" /> 
 				{/* <Button theme="disable" title="Button" />
 				<Button theme="opacity" title="Button" /> */}
-				<CheckBox />
-				<CheckBox type="square" />
 				<List type="checkboxes" elements={fakelist} />
 			</View>
 		</>

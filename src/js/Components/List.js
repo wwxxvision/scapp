@@ -13,12 +13,12 @@ export default class List extends Component {
 
 	getIconByName(name, props) {
 		let Icon = icons[name];
-		return <Icon {...props}></Icon>;
+		return <Icon {...props} />;
 	}
 
 	getListByType(type, elements) {
 		switch (type) {
-			case 'checkboxes':
+			case 'radio':
 				return (
 					<ScrollView>
 						{elements.map((element) => (

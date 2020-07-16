@@ -3,22 +3,22 @@ import { StyleSheet } from 'react-native';
 const { colors, fonts } = variables;
 const overlayCircleSize = 45;
 export const listStyles = StyleSheet.create({
-	listItem: (type) => {
+	listItem: (type, index) => {
 		switch (type) {
-			case 'checkboxes':
+			case 'radio':
 				return {
 					display: 'flex',
 					flexDirection: 'row',
 					alignItems: 'center',
-					justifyContent: 'space-between',
+     justifyContent: 'space-between',
+     marginTop: 22
 				};
 		}
  },
  itemIcon: {
   height: 40,
   width: 40,
-  zIndex: 1,
-
+  zIndex: 10,
  },
  iconOverlay: {
   height: overlayCircleSize,
