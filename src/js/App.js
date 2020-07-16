@@ -1,12 +1,25 @@
 import React from 'react';
 import { View } from 'react-native';
-import Button from './Components/Button';
+import List from './Components/List';
 import Input from './Components/Input';
 import CheckBox from './Components/CheckBox';
-import Range from './Components/Range';
 
 // import List from './Components/List';
 const App = () => {
+	const fakelist = [
+		{
+			id: 0,
+			title: 'Spain',
+			useIcon: true,
+			iconName: 'spain'
+		},
+		{
+			id: 1,
+			title: 'Usa',
+			useIcon: true,
+			iconName: 'usa'
+		}
+	]
 	return (
 		<>
 			<View style={{ paddingHorizontal: 10 }}>
@@ -24,7 +37,7 @@ const App = () => {
 				<Button theme="opacity" title="Button" /> */}
 				<CheckBox />
 				<CheckBox type="square" />
-				<Range />
+				<List type="checkboxes" elements={fakelist} />
 			</View>
 		</>
 	);

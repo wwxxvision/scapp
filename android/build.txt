@@ -1,0 +1,35 @@
+если не билдится то не может выполнится градл
+chmod 755 android/gradlew
+
+может не хватать выполняемых процессов и будет падать сервер
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+собрать асеты
+yarn start
+
+скачать асеты в проект
+curl "http://localhost:8081/index.bundle?platform=android" -o "android/app/src/main/assets/index.android.bundle"
+
+если ключ не создавался (пароль 111111)
+cd android/app
+keytool -genkeypair -v -keystore digma.keystore -alias digma -keyalg RSA -keysize 2048 -validity 10000
+
+cd android && ./gradlew assembleRelease && echo "Builded: ./android/app/build/outputs/apk/release/app-release.apk" && cd ../
+
+
+
+IOS in XCODE
+
+select "Generic ios Device"
+disable "Automatically manage signing@
+select "Release profile signing"
+
+then 
+-> Menu 
+-> Product 
+-> Archive 
+-> Distribute App 
+-> Ad Hoc 
+-> thining none 
+-> select your cert
+-> export
