@@ -36,22 +36,29 @@ export default class List extends Component {
 			case 'radio':
 				return (
 					<ScrollView>
-						{elements.map((element) => (
-							<View style={listStyles.listItem(type)} key={element.id}>
-								<View style={{ ...utils.flex, alignItems: 'center' }}>
-									{element.useIcon && (
-										<View style={listStyles.iconOverlay}>
-											{getIconByName(element.iconName, {
-												...listStyles.itemIcon,
-												position: 'absolute',
-											})}
-										</View>
-									)}
-									<Text style={listStyles.itemText(type)}>{element.title}</Text>
+						{elements.map((element, index) => {
+							const listItemMargins =
+								index > 0 ? listStyles.listItemMargin(type) : null;
+
+							return (
+								<View style={{...listStyles.listItem(type), ...listItemMargins}} key={element.id}>
+									<View style={{ ...utils.flex('row'), alignItems: 'center' }}>
+										{element.useIcon && (
+											<View style={listStyles.iconOverlay}>
+												{getIconByName(element.iconName, {
+													...listStyles.itemIcon,
+													position: 'absolute',
+												})}
+											</View>
+										)}
+										<Text style={listStyles.itemText(type)}>
+											{element.title}
+										</Text>
+									</View>
+									<CheckBox />
 								</View>
-								<CheckBox />
-							</View>
-						))}
+							);
+						})}
 					</ScrollView>
 				);
 			case 'checkboxes':
@@ -59,7 +66,7 @@ export default class List extends Component {
 					<ScrollView horizontal={true}>
 						{elements.map((element, index) => {
 							const listItemMargins =
-								index > 0 ? listStyles.listItemMargin : null;
+								index > 0 ? listStyles.listItemMargin(type) : null;
 							return (
 								<TouchableWithoutFeedback
 									key={element.id}

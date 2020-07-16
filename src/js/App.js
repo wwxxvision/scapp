@@ -64,14 +64,14 @@ const App = () => {
 	]
 	return (
 		<>
-			<View style={{ paddingHorizontal: 10 }}>
+			<View style={{ paddingHorizontal: 10, flex: 1 }}>
 				{/* <Button theme="danger" title="Button" />
 				<Button theme="lightBlue" title="Button" /> */}
 				{/* <Button theme="darkBlue" title="Button" />
 				<Button theme="white" title="Button" />
 				<Button theme="disable" title="Button" />
 				<Button theme="opacity" title="Button" />
-			<Button theme="transparent" title="Button" />  */}
+				<Button theme="transparent" title="Button" />  */}
 				<Input label="Test" labelTheme="darkBlue" type="private" icon="lock" />
 				<Input label="Test" labelTheme="darkBlue" icon="network" />
 				<Input label="Test" labelTheme="darkBlue" icon="birthDay" /> 

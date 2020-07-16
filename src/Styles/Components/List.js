@@ -17,9 +17,9 @@ export const listStyles = StyleSheet.create({
 					display: 'flex',
 					alignItems: 'center',
 					flexDirection: 'column',
-     maxWidth: 38,
-     paddingTop: 5,
-     paddingBottom: 5
+					maxWidth: 38,
+					paddingTop: 5,
+					paddingBottom: 5,
 				};
 		}
 	},
@@ -27,14 +27,23 @@ export const listStyles = StyleSheet.create({
 		height: 40,
 		width: 40,
 		zIndex: 10,
- },
- itemIconSizeSmall: {
-  height: 36,
+	},
+	itemIconSizeSmall: {
+		height: 36,
 		width: 36,
- },
- listItemMargin: {
-  marginLeft: 10
- },
+	},
+	listItemMargin: (type) => {
+		switch (type) {
+   case 'radio':
+    return {
+     paddingTop: 17
+    }
+			case 'checkboxes':
+				return {
+					marginLeft: 10,
+    };
+		}
+	},
 	iconOverlay: {
 		height: overlayCircleSize,
 		width: overlayCircleSize,
@@ -62,9 +71,9 @@ export const listStyles = StyleSheet.create({
 					textAlign: 'center',
 				};
 		}
- },
- itemIconChecked: {
-  right: -5,
-  top: 2
- }
+	},
+	itemIconChecked: {
+		right: -5,
+		top: 2,
+	},
 });
