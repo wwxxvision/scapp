@@ -4,6 +4,7 @@ import CheckBox from './CheckBox';
 import { listStyles } from '../../Styles/Components';
 import { utils } from '../../Styles/Base';
 import getIconByName from '../Utils/getIconByName';
+import PropsTypes from 'prop-types';
 
 export default class List extends Component {
 	constructor(props) {
@@ -11,6 +12,13 @@ export default class List extends Component {
 		this.state = {
 			values: [],
 		};
+	}
+
+	componentDidMount() {
+		if (this.props.initValue)
+			this.setState({
+				values: this.props.initValue,
+			});
 	}
 
 	checkedItem = (item) => {
@@ -132,3 +140,13 @@ export default class List extends Component {
 		return <>{this.getListByType(type, elements)}</>;
 	}
 }
+
+CheckBox.defaultProps = {
+	type: 'radio'
+};
+
+CheckBox.PropsTypes = {
+	type: PropsTypes.string,
+	elements: PropsTypes.array.isRequired,
+	initValue:PropsTypes.array
+};
