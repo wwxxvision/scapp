@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text } from 'react-native';
-import icons from '../Utils/imageExporter';
 import CheckBox from './CheckBox';
 import { listStyles } from '../../Styles/Components';
 import { utils } from '../../Styles/Base';
+import getIconByName from '../Utils/getIconByName';
 
 export default class List extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
-	}
-
-	getIconByName(name, props) {
-		let Icon = icons[name];
-		return <Icon {...props} />;
+		this.state = {
+			values: [],
+		};
 	}
 
 	getListByType(type, elements) {
@@ -26,7 +23,7 @@ export default class List extends Component {
 								<View style={{ ...utils.flex, alignItems: 'center' }}>
 									{element.useIcon && (
 										<View style={listStyles.iconOverlay}>
-											{this.getIconByName(element.iconName, {
+											{getIconByName(element.iconName, {
 												...listStyles.itemIcon,
 												position: 'absolute',
 											})}
@@ -43,16 +40,27 @@ export default class List extends Component {
 				return (
 					<ScrollView horizontal={true}>
 						{elements.map((element, index) => {
-							const itemHasMargin =
+							const listItemMargins =
 								index > 0 ? listStyles.listItemMargin : null;
 							return (
 								<View
-									style={{ ...listStyles.listItem(type), ...itemHasMargin }}
+									style={{ ...listStyles.listItem(type), ...listItemMargins }}
 									key={element.id}
 								>
 									{element.useIcon && (
 										<>
-											<View>{this.getIconByName(element.iconName)}</View>
+											<View>
+												{getIconByName(
+													element.iconName,
+													listStyles.itemIconSizeSmall
+												)}
+												{getIconByName('checked', {
+													style: {
+														position: 'absolute',
+														...listStyles.itemIconChecked,
+													},
+												})}
+											</View>
 											<Text style={listStyles.itemText(type)}>
 												{element.title}
 											</Text>

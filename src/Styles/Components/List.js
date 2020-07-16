@@ -27,6 +27,10 @@ export const listStyles = StyleSheet.create({
 		width: 40,
 		zIndex: 10,
  },
+ itemIconSizeSmall: {
+  height: 36,
+		width: 36,
+ },
  listItemMargin: {
   marginLeft: 10
  },
@@ -57,5 +61,9 @@ export const listStyles = StyleSheet.create({
 					textAlign: 'center',
 				};
 		}
-	},
+ },
+ itemIconChecked: {
+  right: -5,
+  top: 2
+ }
 });

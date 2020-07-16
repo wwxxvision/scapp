@@ -7,6 +7,7 @@ import oko from '../../assets/img/oko_icon.svg';
 import usa from '../../assets/img/usa_icon.svg';
 import spain from '../../assets/img/spain_icon.svg';
 import portug from '../../assets/img/portug_icon.svg';
+import checked from '../../assets/img/checked_icon.svg';
 
 export default {
 	user,
@@ -18,4 +19,5 @@ export default {
 	usa,
 	spain,
 	portug,
+	checked
 };
