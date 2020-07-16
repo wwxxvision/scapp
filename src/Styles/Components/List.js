@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const { colors, fonts } = variables;
 const overlayCircleSize = 45;
 export const listStyles = StyleSheet.create({
-	listItem: (type, index) => {
+	listItem: (type) => {
 		switch (type) {
 			case 'radio':
 				return {
@@ -12,7 +12,13 @@ export const listStyles = StyleSheet.create({
 					alignItems: 'center',
      justifyContent: 'space-between',
      marginTop: 22
-				};
+    };
+   case 'checkboxes':
+    return {
+     display: 'flex',
+     alignItems: 'center',
+     flexDirection: 'row'
+    }
 		}
  },
  itemIcon: {

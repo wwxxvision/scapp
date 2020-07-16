@@ -23,7 +23,7 @@ export default class List extends Component {
 					<ScrollView>
 						{elements.map((element) => (
 							<View style={listStyles.listItem(type)} key={element.id}>
-								<View style={{ ...utils.flex('row'), alignItems: 'center' }}>
+								<View style={{ ...utils.flex, alignItems: 'center' }}>
 									{element.useIcon && (
 										<View style={listStyles.iconOverlay}>
 											{this.getIconByName(element.iconName, {
@@ -37,6 +37,18 @@ export default class List extends Component {
 								<CheckBox />
 							</View>
 						))}
+					</ScrollView>
+				);
+			case 'checkboxes':
+				return (
+					<ScrollView horizontal={true} >
+							{elements.map((element) => (
+								<View style={listStyles.listItem(type)} key={element.id}>
+									{element.useIcon && (
+										<View>{this.getIconByName(element.iconName)}</View>
+									)}
+								</View>
+							))}
 					</ScrollView>
 				);
 		}
