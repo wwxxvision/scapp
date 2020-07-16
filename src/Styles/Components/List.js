@@ -59,7 +59,9 @@ export const listStyles = StyleSheet.create({
 					fontSize: 17,
 					color: colors.light_blue,
 					fontFamily: fonts.popins,
-					paddingLeft: 16,
+     paddingLeft: 16,
+     paddingRight: 16,
+     maxWidth: 260
 				};
 
 			case 'checkboxes':

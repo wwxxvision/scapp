@@ -67,7 +67,7 @@ export default class List extends Component {
 												})}
 											</View>
 										)}
-										<Text style={listStyles.itemText(type)}>
+										<Text numberOfLines={1} style={listStyles.itemText(type)}>
 											{element.title}
 										</Text>
 									</View>
