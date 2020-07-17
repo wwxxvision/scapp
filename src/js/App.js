@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import SelectList from './Components/SelectList';
 import Input from './Components/Input';
 import CheckBox from './Components/CheckBox';
@@ -105,12 +105,10 @@ const App = () => {
 		];
 	return (
 		<>
-			<ScrollView
-				contentContainerStyle={{
+			<View
+				style={{
 					flex: 1,
 					backgroundColor: 'white',
-					position: 'relative',
-					height: '100%',
 				}}
 			>
 				{/* <Button theme="danger" title="Button" />
@@ -126,13 +124,16 @@ const App = () => {
 				<Input label="Test" labelTheme="darkBlue" icon="user" />
 				<Input label="Test" icon="user" />
 				<List type="checkboxes" elements={fakelist} />
+
 				<List type="radio" elements={fakelist} /> */}
 				{/* <List type="checkboxes" elements={fakelist} /> */}
 				{/* <SelectList type="checkboxes" elements={fakelist} /> */}
-				<Tag text="Centered example text" />
-				<List elements={fakelistRef} />
+				<ScrollView style={{ flex: 1 }}>
+					<List elements={fakelistRef} />
+					<Tag text="Centered example text" />
+				</ScrollView>
 				<Nav theme="white" />
-			</ScrollView>
+			</View>
 		</>
 	);
 };
