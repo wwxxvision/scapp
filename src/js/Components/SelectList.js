@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, TouchableWithoutFeedback } from 'react-native';
 import CheckBox from './CheckBox';
-import { listStyles } from '../../Styles/Components';
+import { selectListStyles } from '../../Styles/Components';
 import { utils } from '../../Styles/Base';
 import getIconByName from '../Utils/getIconByName';
 import PropsTypes from 'prop-types';
 
-export default class List extends Component {
+export default class SelectList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -56,36 +56,32 @@ export default class List extends Component {
 		});
 	};
 
-	getListByType(type, elements) {
+	getSelectListByType(type, elements) {
 		switch (type) {
 			case 'radio':
 				return (
 					<ScrollView>
 						{elements.map((element, index) => {
 							const listItemMargins =
-								index > 0 ? listStyles.listItemMargin(type) : null;
+								index > 0 ? selectListStyles.listItemMargin(type) : null;
 
 							return (
 								<View
 									key={element.id}
-									style={{ ...listStyles.listItem(type), ...listItemMargins }}
+									style={{ ...selectListStyles.listItem(type), ...listItemMargins }}
 								>
 									<View style={{ ...utils.flex('row'), alignItems: 'center' }}>
 										{element.useIcon && (
-											<View style={listStyles.iconOverlay}>
+											<View style={selectListStyles.iconOverlay}>
 												{getIconByName(element.iconName, {
-													...listStyles.itemIcon,
+													...selectListStyles.itemIcon,
 													position: 'absolute',
 												})}
 											</View>
 										)}
-										<Text style={listStyles.itemText(type)}>
-											{element.title}
-										</Text>
+										<Text style={selectListStyles.itemText(type)}>{element.title}</Text>
 									</View>
-									<TouchableWithoutFeedback
-										onPress={() => this.selectItem(element)}
-									>
+									<TouchableWithoutFeedback onPress={() => this.selectItem(element)}>
 										<View>
 											<CheckBox isChecked={() => this.itemIsActive(element)} />
 										</View>
@@ -100,33 +96,31 @@ export default class List extends Component {
 					<ScrollView horizontal={true}>
 						{elements.map((element, index) => {
 							const listItemMargins =
-								index > 0 ? listStyles.listItemMargin(type) : null;
+								index > 0 ? selectListStyles.listItemMargin(type) : null;
 							return (
 								<TouchableWithoutFeedback
 									key={element.id}
 									onPress={() => this.checkedItem(element)}
 								>
 									<View
-										style={{ ...listStyles.listItem(type), ...listItemMargins }}
+										style={{ ...selectListStyles.listItem(type), ...listItemMargins }}
 									>
 										{element.useIcon && (
 											<>
 												<View>
 													{getIconByName(
 														element.iconName,
-														listStyles.itemIconSizeSmall
+														selectListStyles.itemIconSizeSmall
 													)}
 													{this.itemIsActive(element) &&
 														getIconByName('checked', {
 															style: {
 																position: 'absolute',
-																...listStyles.itemIconChecked,
+																...selectListStyles.itemIconChecked,
 															},
 														})}
 												</View>
-												<Text style={listStyles.itemText(type)}>
-													{element.title}
-												</Text>
+												<Text style={selectListStyles.itemText(type)}>{element.title}</Text>
 											</>
 										)}
 									</View>
@@ -141,15 +135,15 @@ export default class List extends Component {
 	render() {
 		const { type, elements } = this.props;
 
-		return <>{this.getListByType(type, elements)}</>;
+		return <>{this.getSelectListByType(type, elements)}</>;
 	}
 }
 
-List.defaultProps = {
+SelectList.defaultProps = {
 	type: 'radio',
 };
 
-List.PropsTypes = {
+SelectList.PropsTypes = {
 	type: PropsTypes.string,
 	elements: PropsTypes.array.isRequired,
 	initValue: PropsTypes.array,

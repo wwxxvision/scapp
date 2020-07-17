@@ -2,7 +2,7 @@ import { variables, utils } from '../Base/';
 import { StyleSheet } from 'react-native';
 const { colors, fonts } = variables;
 const overlayCircleSize = 45;
-export const listStyles = StyleSheet.create({
+export const selectListStyles = StyleSheet.create({
 	listItem: (type) => {
 		switch (type) {
 			case 'radio':
@@ -34,14 +34,14 @@ export const listStyles = StyleSheet.create({
 	},
 	listItemMargin: (type) => {
 		switch (type) {
-   case 'radio':
-    return {
-     paddingTop: 17
-    }
+			case 'radio':
+				return {
+					paddingTop: 17,
+				};
 			case 'checkboxes':
 				return {
 					marginLeft: 10,
-    };
+				};
 		}
 	},
 	iconOverlay: {
@@ -59,8 +59,8 @@ export const listStyles = StyleSheet.create({
 					fontSize: 17,
 					color: colors.light_blue,
 					fontFamily: fonts.popins,
-     paddingLeft: 16,
-     maxWidth: 260
+					paddingLeft: 16,
+					maxWidth: 260,
 				};
 
 			case 'checkboxes':

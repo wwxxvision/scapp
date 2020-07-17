@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import List from './Components/List';
+import SelectList from './Components/SelectList';
 import Input from './Components/Input';
 import CheckBox from './Components/CheckBox';
 import Button from './Components/Button';
@@ -63,6 +63,12 @@ const App = () => {
 			useIcon: true,
 			iconName: 'spain',
 		},
+		{
+			id: 9,
+			title: 'Spain',
+			useIcon: true,
+			iconName: 'spain',
+		},
 	];
 	return (
 		<>
@@ -89,6 +95,7 @@ const App = () => {
 				<List type="checkboxes" elements={fakelist} />
 				<List type="radio" elements={fakelist} /> */}
 				{/* <List type="checkboxes" elements={fakelist} /> */}
+				{/* <SelectList type="checkboxes" elements={fakelist} /> */}
 				<Tag text="Centered example text" />
 				<Nav theme="white" />
 			</ScrollView>

@@ -2,7 +2,7 @@ import { buttonStyles } from './Button';
 import { inputStyles } from './Input';
 import { checkBoxStyles } from './CheckBox';
 import { rangeStyles } from './Range';
-import { listStyles } from './List';
+import { selectListStyles } from './SelectList';
 import { navStyles } from './Nav';
 import { tagStyles } from './Tag';
 
@@ -11,7 +11,7 @@ export {
 	inputStyles,
 	checkBoxStyles,
 	rangeStyles,
-	listStyles,
+	selectListStyles,
 	navStyles,
 	tagStyles,
 };
