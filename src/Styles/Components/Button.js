@@ -8,6 +8,7 @@ export const buttonStyles = StyleSheet.create({
 		borderRadius: 10,
 		...utils.flex_centered,
 		marginTop: 10,
+		elevation: 10,
 	},
 	big: {
 		width: '100%',
