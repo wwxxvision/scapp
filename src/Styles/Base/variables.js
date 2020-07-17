@@ -21,4 +21,9 @@ export const variables = {
 		popinsSemiBold: 'Poppins-SemiBold',
 		popins: 'Poppins-Regular',
 	},
+	container: {
+		wrapper: {
+			padding: 15,
+		},
+	},
 };

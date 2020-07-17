@@ -65,8 +65,8 @@ const App = () => {
 	];
 	return (
 		<>
-			<ScrollView style={{ paddingHorizontal: 10, flex: 1 }}>
-				<Button theme="danger" title="Button" />
+			<ScrollView style={{ flex: 1, backgroundColor: 'black' }}>
+				{/* <Button theme="danger" title="Button" />
 				<Button theme="lightBlue" title="Button" />
 				<Button theme="darkBlue" title="Button" />
 				<Button theme="white" title="Button" />
@@ -79,8 +79,8 @@ const App = () => {
 				<Input label="Test" labelTheme="darkBlue" icon="user" />
 				<Input label="Test" icon="user" />
 				<List type="checkboxes" elements={fakelist} />
-				<List type="radio" elements={fakelist} />
-				<Nav />
+				<List type="radio" elements={fakelist} /> */}
+				<Nav theme="white" />
 			</ScrollView>
 		</>
 	);
