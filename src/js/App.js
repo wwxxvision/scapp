@@ -5,6 +5,7 @@ import Input from './Components/Input';
 import CheckBox from './Components/CheckBox';
 import Button from './Components/Button';
 import Nav from './Components/Nav';
+import Tag from './Components/Tag';
 
 const App = () => {
 	const fakelist = [
@@ -88,6 +89,7 @@ const App = () => {
 				<List type="checkboxes" elements={fakelist} />
 				<List type="radio" elements={fakelist} /> */}
 				{/* <List type="checkboxes" elements={fakelist} /> */}
+				<Tag text="Centered example text" />
 				<Nav theme="white" />
 			</ScrollView>
 		</>

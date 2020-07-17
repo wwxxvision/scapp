@@ -15,6 +15,7 @@ export const variables = {
 		biege_dark: '#BFD8F6',
 		cream: '#F3F3F3',
 		green: '#4AC60C',
+		wildSand: '#F4F4F4',
 	},
 	fonts: {
 		popinsBold: 'Poppins-Bold',
@@ -24,6 +25,13 @@ export const variables = {
 	container: {
 		wrapper: {
 			padding: 15,
+		},
+	},
+	common: {
+		text: {
+			fontSize: 14,
+			fontFamily: 'Poppins-Regular',
+			color: '#0E3B6E',
 		},
 	},
 };

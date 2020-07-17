@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ROUTER } from '../router';
 import { View, Text } from 'react-native';
 import getIconByName from '../Utils/getIconByName';
-import { navStyles } from '../../Styles/Components/Nav';
+import { navStyles } from '../../Styles/Components';
 
 export default class Nav extends Component {
 	render() {
