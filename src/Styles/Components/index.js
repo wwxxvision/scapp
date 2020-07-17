@@ -6,6 +6,7 @@ import { selectListStyles } from './SelectList';
 import { navStyles } from './Nav';
 import { tagStyles } from './Tag';
 import { listStyles } from './List';
+import { headerStyles } from './Header';
 
 export {
 	buttonStyles,
@@ -16,4 +17,5 @@ export {
 	navStyles,
 	tagStyles,
 	listStyles,
+	headerStyles,
 };
