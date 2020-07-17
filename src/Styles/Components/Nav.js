@@ -12,7 +12,7 @@ export const navStyles = StyleSheet.create({
 		padding: container.wrapper.padding,
 		position: 'absolute',
 		bottom: 0,
-		elevation: 25,
+		elevation: 20,
 	},
 	navIcon: {
 		width: 28,
