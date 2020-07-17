@@ -6,76 +6,109 @@ import CheckBox from './Components/CheckBox';
 import Button from './Components/Button';
 import Nav from './Components/Nav';
 import Tag from './Components/Tag';
+import List from './Components/List';
 
 const App = () => {
 	const fakelist = [
-		{
-			id: 0,
-			title: 'Spain',
-			useIcon: true,
-			iconName: 'spain',
-		},
-		{
-			id: 1,
-			title: 'United states of america ',
-			useIcon: true,
-			iconName: 'usa',
-		},
-		{
-			id: 2,
-			title: 'United states of america',
-			useIcon: true,
-			iconName: 'usa',
-		},
-		{
-			id: 3,
-			title: 'United states of america',
-			useIcon: true,
-			iconName: 'usa',
-		},
-		{
-			id: 4,
-			title: 'United states of america',
-			useIcon: true,
-			iconName: 'usa',
-		},
-		{
-			id: 5,
-			title: 'United states of america',
-			useIcon: true,
-			iconName: 'usa',
-		},
-		{
-			id: 6,
-			title: 'United states of america',
-			useIcon: true,
-			iconName: 'usa',
-		},
-		{
-			id: 7,
-			title: 'Spain',
-			useIcon: true,
-			iconName: 'spain',
-		},
-		{
-			id: 8,
-			title: 'Spain',
-			useIcon: true,
-			iconName: 'spain',
-		},
-		{
-			id: 9,
-			title: 'Spain',
-			useIcon: true,
-			iconName: 'spain',
-		},
-	];
+			{
+				id: 0,
+				title: 'Spain',
+				useIcon: true,
+				iconName: 'spain',
+			},
+			{
+				id: 1,
+				title: 'United states of america ',
+				useIcon: true,
+				iconName: 'usa',
+			},
+			{
+				id: 2,
+				title: 'United states of america',
+				useIcon: true,
+				iconName: 'usa',
+			},
+			{
+				id: 3,
+				title: 'United states of america',
+				useIcon: true,
+				iconName: 'usa',
+			},
+			{
+				id: 4,
+				title: 'United states of america',
+				useIcon: true,
+				iconName: 'usa',
+			},
+			{
+				id: 5,
+				title: 'United states of america',
+				useIcon: true,
+				iconName: 'usa',
+			},
+			{
+				id: 6,
+				title: 'United states of america',
+				useIcon: true,
+				iconName: 'usa',
+			},
+			{
+				id: 7,
+				title: 'Spain',
+				useIcon: true,
+				iconName: 'spain',
+			},
+			{
+				id: 8,
+				title: 'Spain',
+				useIcon: true,
+				iconName: 'spain',
+			},
+			{
+				id: 9,
+				title: 'Spain',
+				useIcon: true,
+				iconName: 'spain',
+			},
+		],
+		fakelistRef = [
+			{
+				id: 0,
+				name: 'Jhon Jhon',
+				status: 'Accepted Inovation',
+				avatar: false,
+				data: {
+					type: 'increase',
+					value: '$20',
+				},
+			},
+			{
+				id: 1,
+				name: 'Jhon Jhon',
+				status: 'Accepted Inovation',
+				avatar: false,
+				data: {
+					type: 'decrease',
+					value: '$20',
+				},
+			},
+			{
+				id: 2,
+				name: 'Jhon Jhon',
+				status: 'Accepted Inovation',
+				avatar: false,
+				data: {
+					type: 'increase',
+					value: '$20',
+				},
+			},
+		];
 	return (
 		<>
 			<ScrollView
 				contentContainerStyle={{
 					flex: 1,
-					backgroundColor: 'black',
+					backgroundColor: 'white',
 					position: 'relative',
 					height: '100%',
 				}}
@@ -97,6 +130,7 @@ const App = () => {
 				{/* <List type="checkboxes" elements={fakelist} /> */}
 				{/* <SelectList type="checkboxes" elements={fakelist} /> */}
 				<Tag text="Centered example text" />
+				<List elements={fakelistRef} />
 				<Nav theme="white" />
 			</ScrollView>
 		</>

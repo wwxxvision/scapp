@@ -5,6 +5,7 @@ import { rangeStyles } from './Range';
 import { selectListStyles } from './SelectList';
 import { navStyles } from './Nav';
 import { tagStyles } from './Tag';
+import { listStyles } from './List';
 
 export {
 	buttonStyles,
@@ -14,4 +15,5 @@ export {
 	selectListStyles,
 	navStyles,
 	tagStyles,
+	listStyles,
 };
