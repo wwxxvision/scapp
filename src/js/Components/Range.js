@@ -1,23 +1,27 @@
 import React from 'react';
-import Slider from '@react-native-community/slider';
 import { rangeStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
-import { variables } from '../../Styles/Base';
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
-export default function Range({ min, max }) {
+export default function Range({ min, max, layoutWidth }) {
 	return (
 		<>
-			<Slider
-				style={rangeStyles.container}
-				minimumValue={min}
-				maximumValue={max}
-				thumbTintColor={variables.colors.light_blue}
+			<MultiSlider
+				container={rangeStyles.container}
+				trackStyle={rangeStyles.track}
+				markerStyle={rangeStyles.marker}
+				selectedStyle={rangeStyles.selected}
+				unselectedStyle={rangeStyles.unselected}
+				min={min}
+				max={max}
+				sliderLength={layoutWidth}
 			/>
 		</>
 	);
 }
 
-Button.PropsTypes = {
+Range.PropsTypes = {
 	min: PropsTypes.number.isRequired,
 	max: PropsTypes.number.isRequired,
+	layoutWidth: PropsTypes.number.isRequired,
 };

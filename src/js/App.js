@@ -7,6 +7,7 @@ import Button from './Components/Button';
 import Nav from './Components/Nav';
 import Tag from './Components/Tag';
 import List from './Components/List';
+import Range from './Components/Range';
 
 const App = () => {
 	const fakelist = [
@@ -131,6 +132,7 @@ const App = () => {
 				<ScrollView style={{ flex: 1 }}>
 					<List elements={fakelistRef} />
 					<Tag text="Centered example text" />
+					<Range layoutWidth={200} min={1} max={1000} />
 				</ScrollView>
 				<Nav theme="white" />
 			</View>
