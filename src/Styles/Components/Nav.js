@@ -10,6 +10,8 @@ export const navStyles = StyleSheet.create({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		padding: container.wrapper.padding,
+		position: 'absolute',
+		bottom: 0,
 	},
 	navIcon: {
 		width: 28,
