@@ -4,6 +4,7 @@ import PropsTypes from 'prop-types';
 import RouteHeader from './Header/RouteHeader';
 import BalanceHeader from './Header/BalanceHeader';
 import { headerStyles } from '../../Styles/Components';
+import TabHeader from './Header/TabHeader';
 
 export default class Header extends Component {
 	constructor(props) {
@@ -15,6 +16,7 @@ export default class Header extends Component {
 			},
 			{
 				name: 'tab',
+				Component: TabHeader,
 			},
 			{
 				name: 'route',

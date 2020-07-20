@@ -24,6 +24,12 @@ export const headerStyles = StyleSheet.create({
 					alignItems: 'center',
 					justifyContent: 'space-between',
 				};
+			case 'tab':
+				return {
+					width: '100%',
+					paddingTop: 34,
+					paddingHorizontal: container.wrapper.padding,
+				};
 		}
 	},
 	balanceData: {
@@ -51,5 +57,31 @@ export const headerStyles = StyleSheet.create({
 	},
 	lightBlue: {
 		backgroundColor: colors.light_blue,
+	},
+	settingsIconStickyLeft: {
+		marginLeft: 'auto',
+		width: '100%',
+	},
+	tabs: {
+		...utils.flex('row'),
+		justifyContent: 'space-between',
+	},
+	tabBlock: {
+		marginTop: 10,
+		opacity: 0.5,
+	},
+	tabBlockIsActive: {
+		borderBottomColor: colors.white,
+		borderBottomWidth: 3,
+		opacity: 1,
+	},
+	tabTitle: {
+		fontSize: 18,
+		color: colors.white,
+		fontFamily: fonts.popins,
+		paddingBottom: 12,
+		...utils.disableFontPadding,
+		paddingHorizontal: 9,
+		lineHeight: 27,
 	},
 });

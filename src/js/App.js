@@ -114,6 +114,17 @@ const App = () => {
 				title: 'Sent Today',
 				value: '12/50',
 			},
+		],
+		fakeTabs = [
+			{
+				title: 'Overview',
+			},
+			{
+				title: 'Referrals',
+			},
+			{
+				title: 'Payouts',
+			},
 		];
 	return (
 		<>
@@ -123,7 +134,7 @@ const App = () => {
 					backgroundColor: 'white',
 				}}
 			>
-				<Header type="balance" theme="lightBlue" data={fakeBalanceDate} />
+				<Header type="tab" theme="lightBlue" tabs={fakeTabs} />
 				<ScrollView style={{ flex: 1 }}>
 					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
