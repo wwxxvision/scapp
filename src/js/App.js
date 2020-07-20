@@ -1,15 +1,18 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-import SelectList from './Components/SelectList';
-import Input from './Components/Input';
-import CheckBox from './Components/CheckBox';
-import Button from './Components/Button';
-import Nav from './Components/Nav';
-import Tag from './Components/Tag';
-import List from './Components/List';
-import Range from './Components/Range';
-import Header from './Components/Header';
-
+import {
+	SelectList,
+	Input,
+	CheckBox,
+	Button,
+	Nav,
+	Tag,
+	List,
+	Range,
+	Header,
+	Card,
+} from './Components';
+console.log(Card);
 const App = () => {
 	const fakelist = [
 			{
@@ -144,13 +147,18 @@ const App = () => {
 					<Button theme="white" title="Button" />
 					<Button theme="disable" title="Button" />
 					<Button theme="opacity" title="Button" /> */}
-					<Input label="Test" labelTheme="darkBlue" type="private" icon="lock" />
+					{/* <Input label="Test" labelTheme="darkBlue" type="private" icon="lock" />
 					<Input label="Test" labelTheme="darkBlue" icon="network" />
 					<Input label="Test" labelTheme="darkBlue" icon="birthDay" />
 					<Input label="Test" labelTheme="darkBlue" icon="user" />
-					<Input label="Test" icon="user" />
+					<Input label="Test" icon="user" /> */}
 					{/* <SelectList type="checkboxes" elements={fakelist} />
 					<SelectList type="radio" elements={fakelist} /> */}
+
+					<Card
+						title="The test title"
+						text="Lorem ipsum 2144914941 Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941"
+					/>
 					<List elements={fakelistRef} />
 				</ScrollView>
 				<Nav theme="white" />

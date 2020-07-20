@@ -14,6 +14,7 @@ import referrals from '../../assets/img/referrals_icon.svg';
 import statistics from '../../assets/img/statistics_icon.svg';
 import settings from '../../assets/img/settings_icon.svg';
 import arrowBack from '../../assets/img/arrow-back_icon.svg';
+import arrowUp from '../../assets/img/arrow-up_icon.svg';
 
 export default {
 	user,
@@ -32,4 +33,5 @@ export default {
 	statistics,
 	settings,
 	arrowBack,
+	arrowUp,
 };

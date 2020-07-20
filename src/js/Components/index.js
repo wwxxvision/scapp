@@ -6,14 +6,6 @@ import Range from './Range';
 import SelectList from './SelectList';
 import Tag from './Tag';
 import CheckBox from './CheckBox';
+import Card from './Card';
 
-export default {
-	Header,
-	Input,
-	List,
-	Nav,
-	Range,
-	SelectList,
-	Tag,
-	CheckBox,
-};
+export { Header, Input, List, Nav, Range, Card, SelectList, Tag, CheckBox };

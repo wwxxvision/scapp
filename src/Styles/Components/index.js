@@ -7,6 +7,7 @@ import { navStyles } from './Nav';
 import { tagStyles } from './Tag';
 import { listStyles } from './List';
 import { headerStyles } from './Header';
+import { cardStyles } from './Card';
 
 export {
 	buttonStyles,
@@ -18,4 +19,5 @@ export {
 	tagStyles,
 	listStyles,
 	headerStyles,
+	cardStyles,
 };

@@ -16,11 +16,13 @@ export const variables = {
 		cream: '#F3F3F3',
 		green: '#4AC60C',
 		wildSand: '#F4F4F4',
+		mercury: '#E6E6E6',
 	},
 	fonts: {
 		popinsBold: 'Poppins-Bold',
 		popinsSemiBold: 'Poppins-SemiBold',
 		popins: 'Poppins-Regular',
+		popinsLight: 'Poppins-Light',
 	},
 	container: {
 		wrapper: {
@@ -32,6 +34,8 @@ export const variables = {
 			fontSize: 14,
 			fontFamily: 'Poppins-Regular',
 			color: '#0E3B6E',
+			lineHeight: 21,
+			includeFontPadding: false,
 		},
 	},
 };

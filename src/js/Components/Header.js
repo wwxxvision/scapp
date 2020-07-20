@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import PropsTypes from 'prop-types';
 import RouteHeader from './Header/RouteHeader';
 import BalanceHeader from './Header/BalanceHeader';

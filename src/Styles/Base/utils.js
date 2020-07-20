@@ -6,12 +6,10 @@ export const utils = {
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
-	flex: (direction) => (
-		{
-			display: 'flex',
-			flexDirection: direction ? direction : 'row'
-		}
-	),
+	flex: (direction) => ({
+		display: 'flex',
+		flexDirection: direction ? direction : 'row',
+	}),
 	getHexColorByTheme: (theme) => {
 		switch (theme) {
 			case 'white':
