@@ -46,3 +46,7 @@ export default class Header extends Component {
 		return <>{getHeader(headerTypes, type)}</>;
 	}
 }
+
+Header.PropsTypes = {
+	type: PropsTypes.string.isRequired,
+};
