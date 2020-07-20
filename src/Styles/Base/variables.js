@@ -17,6 +17,7 @@ export const variables = {
 		green: '#4AC60C',
 		wildSand: '#F4F4F4',
 		mercury: '#E6E6E6',
+		orange: '#FFB54A',
 	},
 	fonts: {
 		popinsBold: 'Poppins-Bold',

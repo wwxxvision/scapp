@@ -8,6 +8,7 @@ import { tagStyles } from './Tag';
 import { listStyles } from './List';
 import { headerStyles } from './Header';
 import { cardStyles } from './Card';
+import { progressStyles } from './Progress';
 
 export {
 	buttonStyles,
@@ -20,4 +21,5 @@ export {
 	listStyles,
 	headerStyles,
 	cardStyles,
+	progressStyles,
 };

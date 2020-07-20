@@ -11,6 +11,7 @@ import {
 	Range,
 	Header,
 	Card,
+	Progress,
 } from './Components';
 console.log(Card);
 const App = () => {
@@ -159,6 +160,7 @@ const App = () => {
 						title="The test title"
 						text="Lorem ipsum 2144914941 Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941"
 					/>
+					<Progress />
 					<List elements={fakelistRef} />
 				</ScrollView>
 				<Nav theme="white" />

@@ -7,5 +7,17 @@ import SelectList from './SelectList';
 import Tag from './Tag';
 import CheckBox from './CheckBox';
 import Card from './Card';
+import Progress from './Progress';
 
-export { Header, Input, List, Nav, Range, Card, SelectList, Tag, CheckBox };
+export {
+	Header,
+	Input,
+	List,
+	Nav,
+	Range,
+	Card,
+	SelectList,
+	Tag,
+	CheckBox,
+	Progress,
+};
