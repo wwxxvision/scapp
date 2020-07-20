@@ -115,21 +115,21 @@ const App = () => {
 			>
 				<Header type="route" theme="lightBlue" />
 				<ScrollView style={{ flex: 1 }}>
-					<Tag text="It is a tag" />
+					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
 					<Button theme="danger" title="Button" />
 					<Button theme="lightBlue" title="Button" />
 					<Button theme="darkBlue" title="Button" />
 					<Button theme="white" title="Button" />
 					<Button theme="disable" title="Button" />
-					<Button theme="opacity" title="Button" />
+					<Button theme="opacity" title="Button" /> */}
 					<Input label="Test" labelTheme="darkBlue" type="private" icon="lock" />
 					<Input label="Test" labelTheme="darkBlue" icon="network" />
 					<Input label="Test" labelTheme="darkBlue" icon="birthDay" />
 					<Input label="Test" labelTheme="darkBlue" icon="user" />
 					<Input label="Test" icon="user" />
-					<SelectList type="checkboxes" elements={fakelist} />
-					<SelectList type="radio" elements={fakelist} />
+					{/* <SelectList type="checkboxes" elements={fakelist} />
+					<SelectList type="radio" elements={fakelist} /> */}
 					<List elements={fakelistRef} />
 				</ScrollView>
 				<Nav theme="white" />

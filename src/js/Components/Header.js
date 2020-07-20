@@ -26,7 +26,11 @@ export default class Header extends Component {
 		const currentHeader = headerTypes.find((header) => header.name === type);
 		if (currentHeader) {
 			return (
-				<currentHeader.Component headerStyles={headerStyles} {...this.props} />
+				<currentHeader.Component
+					headerStyles={headerStyles}
+					{...this.props}
+					title="Withdrawal Options"
+				/>
 			);
 		} else {
 			throw Error('Incorect header type');

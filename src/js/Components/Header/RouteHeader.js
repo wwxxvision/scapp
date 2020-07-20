@@ -5,11 +5,27 @@ import getIconByName from '../../Utils/getIconByName';
 
 export default class RouteHeader extends Component {
 	render() {
-		const { type, headerStyles, theme } = this.props;
+		const { type, headerStyles, theme, isGoBack, title } = this.props;
 		return (
-			<View
-				style={{ ...headerStyles.container(type), ...headerStyles[theme] }}
-			></View>
+			<View style={{ ...headerStyles.container(type), ...headerStyles[theme] }}>
+				{isGoBack ? getIconByName('arrowBack') : <View></View>}
+				<Text style={headerStyles.headerTitle}>{title}</Text>
+				{getIconByName('settings')}
+			</View>
 		);
 	}
 }
+
+RouteHeader.defaultProps = {
+	isGoBack: false,
+	type: 'route',
+	theme: 'lightBlue',
+};
+
+RouteHeader.PropsTypes = {
+	isGoBack: PropsTypes.boolean,
+	type: PropsTypes.string,
+	theme: PropsTypes.string,
+	title: PropsTypes.string,
+	headerStyles: PropsTypes.object,
+};

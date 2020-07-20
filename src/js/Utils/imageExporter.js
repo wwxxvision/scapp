@@ -12,6 +12,8 @@ import support from '../../assets/img/support_icon.svg';
 import dashboard from '../../assets/img/dashboard_icon.svg';
 import referrals from '../../assets/img/referrals_icon.svg';
 import statistics from '../../assets/img/statistics_icon.svg';
+import settings from '../../assets/img/settings_icon.svg';
+import arrowBack from '../../assets/img/arrow-back_icon.svg';
 
 export default {
 	user,
@@ -28,4 +30,6 @@ export default {
 	dashboard,
 	referrals,
 	statistics,
+	settings,
+	arrowBack,
 };
