@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import getIconByName from '../Utils/getIconByName';
 import PropsTypes from 'prop-types';
 import RouteHeader from './Header/RouteHeader';
+import BalanceHeader from './Header/BalanceHeader';
 import { headerStyles } from '../../Styles/Components';
 
 export default class Header extends Component {
@@ -11,6 +11,7 @@ export default class Header extends Component {
 		this.headerTypes = [
 			{
 				name: 'balance',
+				Component: BalanceHeader,
 			},
 			{
 				name: 'tab',

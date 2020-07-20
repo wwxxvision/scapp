@@ -104,6 +104,16 @@ const App = () => {
 					value: '$20',
 				},
 			},
+		],
+		fakeBalanceDate = [
+			{
+				title: 'My balance',
+				value: '$17.45',
+			},
+			{
+				title: 'Sent Today',
+				value: '12/50',
+			},
 		];
 	return (
 		<>
@@ -113,7 +123,7 @@ const App = () => {
 					backgroundColor: 'white',
 				}}
 			>
-				<Header type="route" theme="lightBlue" />
+				<Header type="balance" theme="lightBlue" data={fakeBalanceDate} />
 				<ScrollView style={{ flex: 1 }}>
 					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
