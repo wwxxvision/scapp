@@ -44,11 +44,11 @@ export default class Progress extends Component {
 		const { circlePos, radius } = this;
 		const { progress } = this.state;
 		const { x0, y0, dx0, dy0, dx1, dy1, x1, y1 } = this.state;
-
+		console.log(y0);
 		return `M ${x0} ${y0} C ${x0 + dx0} ${y0 + dy0} ${circlePos.x + dx1} ${
 			y0 + dy1
 		} ${x1} ${y1}
-      S ${circlePos.x} ${y0 + radius * 2} ${x0 - 50} ${y0 + 50}
+      S ${circlePos.x} ${y0 + radius * 2} ${x0 - 50} ${y0 + 200}
     `;
 	};
 
@@ -64,7 +64,7 @@ export default class Progress extends Component {
 						</ClipPath>
 					</Defs>
 					<G>
-						<Circle cx={circlePos.x} cy={circlePos.y} r="100" fill={colors.blue} />
+						<Circle cx={circlePos.x} cy={circlePos.y} r="97" fill={colors.blue} />
 						<Circle
 							cx={circlePos.x}
 							cy={circlePos.y}
