@@ -156,10 +156,10 @@ const App = () => {
 					{/* <SelectList type="checkboxes" elements={fakelist} />
 					<SelectList type="radio" elements={fakelist} /> */}
 
-					<Card
+					{/* <Card
 						title="The test title"
 						text="Lorem ipsum 2144914941 Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941"
-					/>
+					/> */}
 					<Progress />
 					<List elements={fakelistRef} />
 				</ScrollView>
