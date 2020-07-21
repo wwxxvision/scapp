@@ -219,7 +219,10 @@ const App = () => {
 					/> */}
 					{/* <Progress /> */}
 					{/* <List elements={fakelistRef} /> */}
-					<VerifyCode resendSmsTime={CONSTANTS.APP.RESEND_SMS_TIME} />
+					<VerifyCode
+						textValidation={CONSTANTS.APP.ERRORS.INVALID_VERIFY_CODE}
+						resendSmsTime={CONSTANTS.APP.RESEND_SMS_TIME}
+					/>
 					{/* <Menu tabs={fakeMenuTabs} />
 					<StepTabs tabs={fakeStepTabs} /> */}
 				</ScrollView>

@@ -28,7 +28,7 @@ export default class VerifyCode extends Component {
 				},
 			],
 			tickInterval: this.props.resendSmsTime,
-			
+			currentEvent: 'wait',
 		};
 		this.inputs = [
 			{
@@ -82,15 +82,16 @@ export default class VerifyCode extends Component {
 
 	getCodeValueHowNumber = () => {
 		const { code } = this.state;
-		const isValideCode = code.every(itemCode => !isNaN(Number(itemCode.value)))
+		const isValideCode = code.every((itemCode) => Number(itemCode.value));
+
 		if (isValideCode) {
-			return 	this.state.code.map(itemCode => itemCode.value).join('');
+			return this.state.code.map((itemCode) => itemCode.value).join('');
 		}
 
 		return false;
 	};
 
-	deleteCodeValue = () => {
+	deleteCodeValue = (id) => {
 		const { code } = this.state;
 
 		code.map((codeItem) => {
@@ -104,7 +105,7 @@ export default class VerifyCode extends Component {
 		return code;
 	};
 
-	updateCodeValue = () => {
+	updateCodeValue = (value, id) => {
 		const { code } = this.state;
 
 		code.map((itemCode) => {
@@ -124,7 +125,7 @@ export default class VerifyCode extends Component {
 		if (value) {
 			this.setState(
 				{
-					code: updateCodeValue(),
+					code: updateCodeValue(value, id),
 				},
 				() => {
 					const nextElement = this.getInputByPos(id + 1);
@@ -135,7 +136,7 @@ export default class VerifyCode extends Component {
 			);
 		} else {
 			this.setState({
-				code: deleteCodeValue(),
+				code: deleteCodeValue(id),
 			});
 		}
 	};
@@ -146,13 +147,43 @@ export default class VerifyCode extends Component {
 	};
 
 	pressVerify = () => {
-		const { initInterval } = this;
-		initInterval();
-		
-	}
+		const { initInterval, getCodeValueHowNumber } = this;
+		const { currentEvent } = this.state;
+		const code = getCodeValueHowNumber();
+
+		console.log(code);
+
+		this.setState({
+			currentEvent: 'waiting',
+		});
+
+		if (code) {
+			initInterval();
+			this.setState({
+				currentEvent: 'sending',
+			});
+		} else {
+			this.setState({
+				currentEvent: 'invalid',
+			});
+		}
+	};
+
+	getValidateText = () => {
+		const { currentEvent } = this.state;
+		const { textValidation } = this.props;
+		const isInvalide = currentEvent === 'invalid';
+
+		return (
+			<Text style={verifyCodeStyles.textValidation}>
+				{isInvalide ? textValidation : ''}
+			</Text>
+		);
+	};
 
 	render() {
-		const { inputs, changeInput, backspace } = this;
+		const { inputs, changeInput, backspace, pressVerify, getValidateText } = this;
+
 		return (
 			<View>
 				<View style={verifyCodeStyles.inputsWrapper}>
@@ -170,8 +201,9 @@ export default class VerifyCode extends Component {
 						/>
 					))}
 				</View>
+				{getValidateText()}
 				<View>
-					<Button action={} title="Verify" theme="lightBlue" />
+					<Button action={pressVerify} title="Verify" theme="lightBlue" />
 				</View>
 			</View>
 		);

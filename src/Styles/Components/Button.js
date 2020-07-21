@@ -49,5 +49,6 @@ export const buttonStyles = StyleSheet.create({
 	buttonTitle: {
 		fontSize: 16,
 		fontFamily: fonts.popinsBold,
+		textAlign: 'center',
 	},
 });
