@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { verifyCodeStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
 import Input from './Input';
+import Button from './Button';
 
 export default class VerifyCode extends Component {
 	constructor(props) {
@@ -27,6 +28,7 @@ export default class VerifyCode extends Component {
 				},
 			],
 			tickInterval: this.props.resendSmsTime,
+			
 		};
 		this.inputs = [
 			{
@@ -76,8 +78,16 @@ export default class VerifyCode extends Component {
 
 	getInputByPos = (id) => this.inputs.find((input) => input.id === id);
 
-	inputFocus = (element) => {
-		element.ref.current.focus();
+	inputFocus = (element) => element.ref.current.focus();
+
+	getCodeValueHowNumber = () => {
+		const { code } = this.state;
+		const isValideCode = code.every(itemCode => !isNaN(Number(itemCode.value)))
+		if (isValideCode) {
+			return 	this.state.code.map(itemCode => itemCode.value).join('');
+		}
+
+		return false;
 	};
 
 	deleteCodeValue = () => {
@@ -131,10 +141,15 @@ export default class VerifyCode extends Component {
 	};
 
 	backspace = ({ id }) => {
-		const { code } = this.state;
 		const inputFirst = id === 1;
 		if (!inputFirst) this.inputFocus(this.getInputByPos(id - 1));
 	};
+
+	pressVerify = () => {
+		const { initInterval } = this;
+		initInterval();
+		
+	}
 
 	render() {
 		const { inputs, changeInput, backspace } = this;
@@ -154,6 +169,9 @@ export default class VerifyCode extends Component {
 							customStyles={verifyCodeStyles.verifyCodeInput}
 						/>
 					))}
+				</View>
+				<View>
+					<Button action={} title="Verify" theme="lightBlue" />
 				</View>
 			</View>
 		);

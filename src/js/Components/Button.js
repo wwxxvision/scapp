@@ -5,7 +5,7 @@ import PropsTypes from 'prop-types';
 
 export default function Button({ title, theme, size, content, action }) {
 	return (
-		<TouchableOpacity>
+		<TouchableOpacity onPress={action}>
 			<View
 				style={{
 					...buttonStyles.container,
