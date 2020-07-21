@@ -11,15 +11,14 @@ export default class Menu extends Component {
 			<View>
 				{tabs.map((tab, index) => {
 					return (
-						<TouchableWithoutFeedback>
+						<TouchableWithoutFeedback key={index}>
 							<View
-								key={index}
 								style={{
 									...menuStyles.tabContainer,
 									...menuStyles.getTabMargins(index),
 								}}
 							>
-								{getIconByName(tab.icon, { heigth: 20, width: 25 })}
+								{getIconByName(tab.icon, { heigth: 22, width: 22 })}
 								<Text style={menuStyles.tabTitle}>{tab.title}</Text>
 							</View>
 						</TouchableWithoutFeedback>
