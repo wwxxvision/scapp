@@ -24,6 +24,7 @@ export const verifyCodeStyles = StyleSheet.create({
 	textValidation: {
 		...common.errors.text,
 		marginTop: 10,
+		textAlign: 'center',
 	},
 	timer: {
 		fontSize: 14,

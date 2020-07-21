@@ -93,7 +93,7 @@ export default class VerifyCode extends Component {
 		const isValideCode = code.every((itemCode) => Number(itemCode.value));
 
 		if (isValideCode) {
-			return this.state.code.map((itemCode) => itemCode.value).join('');
+			return code.map((itemCode) => itemCode.value).join('');
 		}
 
 		return false;
@@ -142,14 +142,22 @@ export default class VerifyCode extends Component {
 	};
 
 	changeInput = (value, { id }) => {
-		const { inputs, deleteCodeValue, updateCodeValue } = this;
+		const { inputs, deleteCodeValue, updateCodeValue, pressVerify } = this;
+		const { code } = this.state;
 		const inputLast = id === inputs.length;
+
 		if (value) {
 			this.setState(
 				{
 					code: updateCodeValue(value, id),
 				},
 				() => {
+					const isCompleteCode = code.every((codeItem) => codeItem.value);
+					if (isCompleteCode) {
+						pressVerify();
+
+						return;
+					}
 					const nextElement = this.getInputByPos(id + 1);
 					if (nextElement && !inputLast) {
 						this.inputFocus(nextElement);
@@ -169,22 +177,26 @@ export default class VerifyCode extends Component {
 	};
 
 	pressVerify = () => {
+		const { currentEvent } = this.state;
 		const { initInterval, getCodeValueHowNumber } = this;
 		const code = getCodeValueHowNumber();
+		const isSending = currentEvent === 'sending';
 
-		this.setState({
-			currentEvent: 'waiting',
-		});
+		if (!isSending) {
+			this.setState({
+				currentEvent: 'waiting',
+			});
 
-		if (code) {
-			initInterval();
-			this.setState({
-				currentEvent: 'sending',
-			});
-		} else {
-			this.setState({
-				currentEvent: 'invalid',
-			});
+			if (code) {
+				initInterval();
+				this.setState({
+					currentEvent: 'sending',
+				});
+			} else {
+				this.setState({
+					currentEvent: 'invalid',
+				});
+			}
 		}
 	};
 
@@ -239,6 +251,7 @@ export default class VerifyCode extends Component {
 							customProps={{
 								id: input.id,
 							}}
+							editable={currentEvent !== 'sending'}
 							isInvalid={currentEvent === 'invalid'}
 							action={{ change: changeInput, backspace }}
 							customStyles={verifyCodeStyles.verifyCodeInput}

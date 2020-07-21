@@ -21,6 +21,7 @@ const Input = React.forwardRef(
 			customStyles,
 			customProps,
 			isInvalid,
+			editable,
 		},
 		ref
 	) => {
@@ -56,6 +57,7 @@ const Input = React.forwardRef(
 								...customStyles,
 								...invalidStyles,
 							}}
+							editable={editable}
 						/>
 					);
 				case 'number':
@@ -84,6 +86,7 @@ const Input = React.forwardRef(
 								...customStyles,
 								...invalidStyles,
 							}}
+							editable={editable}
 						/>
 					);
 				case 'phone':
@@ -134,6 +137,7 @@ Input.PropsTypes = {
 	theme: PropsTypes.string,
 	icon: PropsTypes.string,
 	isInvalid: PropsTypes.boolean,
+	editable: PropsTypes.boolean,
 	customStyles: PropsTypes.object,
 	customProps: PropsTypes.object,
 	placeholder: PropsTypes.string,
