@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import {
 	SelectList,
 	Input,
@@ -12,6 +12,7 @@ import {
 	Header,
 	Card,
 	Progress,
+	ModalComponent,
 } from './Components';
 
 const App = () => {
@@ -163,6 +164,12 @@ const App = () => {
 					{/* <List elements={fakelistRef} /> */}
 				</ScrollView>
 				<Nav theme="white" />
+				<ModalComponent
+					title="Password recovery"
+					label="Enter your phone number. You'll get an SMS with futher instructions."
+				>
+					<Text>Test</Text>
+				</ModalComponent>
 			</View>
 		</>
 	);

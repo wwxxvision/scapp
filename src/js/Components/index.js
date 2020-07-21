@@ -9,6 +9,7 @@ import CheckBox from './CheckBox';
 import Card from './Card';
 import Progress from './Progress';
 import Button from './Button';
+import ModalComponent from './Modal';
 
 export {
 	Header,
@@ -22,4 +23,5 @@ export {
 	CheckBox,
 	Progress,
 	Button,
+	ModalComponent,
 };

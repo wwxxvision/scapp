@@ -9,6 +9,7 @@ import { listStyles } from './List';
 import { headerStyles } from './Header';
 import { cardStyles } from './Card';
 import { progressStyles } from './Progress';
+import { modalStyles } from './Modal';
 
 export {
 	buttonStyles,
@@ -22,4 +23,5 @@ export {
 	headerStyles,
 	cardStyles,
 	progressStyles,
+	modalStyles,
 };

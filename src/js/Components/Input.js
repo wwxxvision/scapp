@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Image } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { inputStyles } from '../../Styles/Components/';
 import PropsTypes from 'prop-types';
 import icons from '../Utils/imageExporter';
@@ -30,9 +30,7 @@ export default function Input({
 					/>
 				);
 			case 'phone':
-				return (
-					<CountryPicker {...{ withCallingCode: true, withFlag: false }} />
-				);
+				return <CountryPicker {...{ withCallingCode: true, withFlag: false }} />;
 		}
 	};
 
