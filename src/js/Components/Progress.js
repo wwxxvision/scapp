@@ -3,7 +3,16 @@ import { View, Text, Animated } from 'react-native';
 import { progressStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
 import getIconByName from '../Utils/getIconByName';
-import { Svg, Circle, G, ClipPath, Defs, Path, TSpan } from 'react-native-svg';
+import {
+	Svg,
+	Circle,
+	G,
+	ClipPath,
+	Defs,
+	Path,
+	TSpan,
+	Polyline,
+} from 'react-native-svg';
 import { variables, utils } from '../../Styles/Base';
 import { Text as TextSvg } from 'react-native-svg';
 
@@ -58,7 +67,7 @@ export default class Progress extends Component {
 		return (
 			<View>
 				<Svg height={svgSize.height} width={svgSize.width}>
-					<Defs>
+					{/* <Defs>
 						<ClipPath id="clip-wave">
 							<Path fillRule="evenodd" d={getPath()} />
 						</ClipPath>
@@ -106,7 +115,7 @@ export default class Progress extends Component {
 						>
 							SMS sent
 						</TextSvg>
-					</G>
+					</G> */}
 				</Svg>
 			</View>
 		);

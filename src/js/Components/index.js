@@ -8,6 +8,7 @@ import Tag from './Tag';
 import CheckBox from './CheckBox';
 import Card from './Card';
 import Progress from './Progress';
+import Button from './Button';
 
 export {
 	Header,
@@ -20,4 +21,5 @@ export {
 	Tag,
 	CheckBox,
 	Progress,
+	Button,
 };

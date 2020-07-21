@@ -13,7 +13,7 @@ import {
 	Card,
 	Progress,
 } from './Components';
-console.log(Card);
+
 const App = () => {
 	const fakelist = [
 			{
@@ -140,7 +140,7 @@ const App = () => {
 			>
 				<Header type="tab" theme="lightBlue" tabs={fakeTabs} />
 				<ScrollView style={{ flex: 1 }}>
-					<Tag text="It is a tag" />
+					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
 					<Button theme="danger" title="Button" />
 					<Button theme="lightBlue" title="Button" />
@@ -158,9 +158,9 @@ const App = () => {
 					<Card
 						title="The test title"
 						text="Lorem ipsum 2144914941 Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941"
-					/>
+					/> */}
 					<Progress />
-					<List elements={fakelistRef} />
+					{/* <List elements={fakelistRef} /> */}
 				</ScrollView>
 				<Nav theme="white" />
 			</View>
