@@ -4,6 +4,7 @@ import { verifyCodeStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
 import Input from './Input';
 import Button from './Button';
+import Helpers from '../Utils/Helpers';
 
 export default class VerifyCode extends Component {
 	constructor(props) {
@@ -28,7 +29,7 @@ export default class VerifyCode extends Component {
 				},
 			],
 			tickInterval: this.props.resendSmsTime,
-			currentEvent: 'wait',
+			currentEvent: 'waiting',
 		};
 		this.inputs = [
 			{
@@ -58,23 +59,23 @@ export default class VerifyCode extends Component {
 	initInterval = () => {
 		const { tickInterval } = this.state;
 
-		this.interval = () =>
-			setInterval((interval) => {
-				this.decreaseIntervalTick();
-				const timeIsLeft = tickInterval === 0;
+		this.interval = setInterval((interval) => {
+			this.decreaseIntervalTick();
+			const timeIsLeft = tickInterval === 0 || tickInterval < 0;
 
-				if (timeIsLeft) {
-					this.resetIntervalTick();
-					this.setState({
-						currentEvent: 'waiting',
-					});
-					clearInterval(this.interval);
-				}
-				return interval;
-			}, 1000);
+			if (timeIsLeft) {
+				this.resetIntervalTick();
+				this.setState({
+					currentEvent: 'waiting',
+				});
+				clearInterval(this.interval);
+			}
+			return interval;
+		}, 1000);
 	};
 
-	decreaseIntervalTick = () => this.setState({ tickInterval: tickInterval - 1 });
+	decreaseIntervalTick = () =>
+		this.setState({ tickInterval: this.state.tickInterval - 1 });
 
 	resetIntervalTick = () =>
 		this.setState({ tickInterval: this.props.resendSmsTime });
@@ -102,7 +103,7 @@ export default class VerifyCode extends Component {
 			case 'waiting':
 				return 'lightBlue';
 			case 'sending':
-				return 'opacity';
+				return 'disable';
 			default:
 				return 'lightBlue';
 		}
@@ -195,6 +196,21 @@ export default class VerifyCode extends Component {
 		);
 	};
 
+	getTimeInfo = () => {
+		const { currentEvent, tickInterval } = this.state;
+		const isSending = currentEvent === 'sending';
+
+		if (isSending) {
+			return (
+				<Text style={verifyCodeStyles.timer}>
+					Resend SMS In {Helpers.sec2time(tickInterval)}
+				</Text>
+			);
+		} else {
+			return <></>;
+		}
+	};
+
 	render() {
 		const {
 			inputs,
@@ -203,11 +219,12 @@ export default class VerifyCode extends Component {
 			pressVerify,
 			getValidateText,
 			getButtonTheme,
+			getTimeInfo,
 		} = this;
 		const { currentEvent } = this.state;
 
 		return (
-			<View>
+			<View style={verifyCodeStyles.container}>
 				<View style={verifyCodeStyles.inputsWrapper}>
 					{inputs.map((input) => (
 						<input.Component
@@ -225,6 +242,7 @@ export default class VerifyCode extends Component {
 					))}
 				</View>
 				{getValidateText()}
+				{getTimeInfo()}
 				<View>
 					<Button action={pressVerify} title="Verify" theme={getButtonTheme()} />
 				</View>

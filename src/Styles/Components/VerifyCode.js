@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native';
 
 const { colors, fonts, common } = variables;
 export const verifyCodeStyles = StyleSheet.create({
+	container: {
+		...utils.flex('column'),
+		justifyContent: 'center',
+	},
 	inputsWrapper: {
 		...utils.flex('row'),
 		justifyContent: 'space-between',
@@ -20,5 +24,10 @@ export const verifyCodeStyles = StyleSheet.create({
 	textValidation: {
 		...common.errors.text,
 		marginTop: 10,
+	},
+	timer: {
+		fontSize: 14,
+		fontFamily: fonts.popins,
+		textAlign: 'center',
 	},
 });
