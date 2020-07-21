@@ -17,6 +17,7 @@ import {
 	Menu,
 	VerifyCode,
 } from './Components';
+import CONSTANTS from './Constants/';
 
 const App = () => {
 	const fakelist = [
@@ -218,7 +219,7 @@ const App = () => {
 					/> */}
 					{/* <Progress /> */}
 					{/* <List elements={fakelistRef} /> */}
-					<VerifyCode />
+					<VerifyCode resendSmsTime={CONSTANTS.APP.RESEND_SMS_TIME} />
 					{/* <Menu tabs={fakeMenuTabs} />
 					<StepTabs tabs={fakeStepTabs} /> */}
 				</ScrollView>

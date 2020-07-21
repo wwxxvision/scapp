@@ -24,6 +24,7 @@ const Input = React.forwardRef(
 		ref
 	) => {
 		const [privateInfoIsShowing, toggleForShowPrivateInfo] = useState(false);
+		const [value, setValue] = useState(null);
 		const inputIsPrivate = type === 'private';
 		const getInputByType = () => {
 			switch (type) {
@@ -35,7 +36,17 @@ const Input = React.forwardRef(
 							{...customProps}
 							maxLength={maxLength}
 							placeholder={placeholder}
-							onChangeText={(ev) => action.change(ev, customProps)}
+							onKeyPress={({ nativeEvent }) => {
+								if (nativeEvent.key === 'Backspace' && action.backspace)
+									action.backspace(customProps);
+							}}
+							onChangeText={(value) => {
+								if (action.change) {
+									action.change(value, customProps);
+								}
+								setValue(value);
+							}}
+							onFocus={(ev) => (action.focus ? action.focus(ev, customProps) : null)}
 							secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
 							style={{ ...inputStyles.input, ...inputStyles[theme], ...customStyles }}
 						/>
@@ -48,8 +59,17 @@ const Input = React.forwardRef(
 							keyboardType="numeric"
 							maxLength={maxLength}
 							placeholder={placeholder}
-							onChangeText={(ev) => action.change(ev, customProps)}
-							onFocus={(ev) => action.focus(ev, customProps)}
+							onKeyPress={({ nativeEvent }) => {
+								if (nativeEvent.key === 'Backspace' && action.backspace)
+									action.backspace(customProps);
+							}}
+							onChangeText={(value) => {
+								if (action.change) {
+									action.change(value, customProps);
+								}
+								setValue(value);
+							}}
+							onFocus={(ev) => (action.focus ? action.focus(ev, customProps) : null)}
 							secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
 							style={{ ...inputStyles.input, ...inputStyles[theme], ...customStyles }}
 						/>

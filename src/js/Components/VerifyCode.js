@@ -8,7 +8,25 @@ export default class VerifyCode extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			code: [],
+			code: [
+				{
+					id: 1,
+					value: null,
+				},
+				{
+					id: 2,
+					value: null,
+				},
+				{
+					id: 3,
+					value: null,
+				},
+				{
+					id: 4,
+					value: null,
+				},
+			],
+			tickInterval: this.props.resendSmsTime,
 		};
 		this.inputs = [
 			{
@@ -32,44 +50,94 @@ export default class VerifyCode extends Component {
 				ref: React.createRef(),
 			},
 		];
+		this.interval = null;
 	}
+
+	initInterval = () => {
+		const { tickInterval } = this.state;
+
+		this.interval = () =>
+			setInterval((interval) => {
+				this.decreaseIntervalTick();
+				const timeIsLeft = tickInterval === 0;
+
+				if (timeIsLeft) {
+					this.resetIntervalTick();
+					clearInterval(this.interval);
+				}
+				return interval;
+			}, 1000);
+	};
+
+	decreaseIntervalTick = () => this.setState({ tickInterval: tickInterval - 1 });
+
+	resetIntervalTick = () =>
+		this.setState({ tickInterval: this.props.resendSmsTime });
 
 	getInputByPos = (id) => this.inputs.find((input) => input.id === id);
 
-	InputFocus = (element) => {
+	inputFocus = (element) => {
 		element.ref.current.focus();
 	};
 
-	changeInput = (ev, { id }) => {
+	deleteCodeValue = () => {
 		const { code } = this.state;
-		const { inputs } = this;
-		const inputLast = id === inputs.length;
-		this.setState(
-			{
-				code: [...code, ev],
-			},
-			() => {
-				const nextElement = this.getInputByPos(id + 1);
-				if (nextElement && !inputLast) {
-					this.InputFocus(nextElement);
-				}
+
+		code.map((codeItem) => {
+			if (codeItem.id === id) {
+				codeItem.value = null;
 			}
-		);
+
+			return codeItem;
+		});
+
+		return code;
 	};
 
-	focusInput = (ev, { id }) => {
+	updateCodeValue = () => {
 		const { code } = this.state;
-		const inputFirst = id === 1;
-		const currentPosition = code.length;
-		const selectInptIsMoreThnCurPos = id > currentPosition + 1;
 
-		if (selectInptIsMoreThnCurPos && !inputFirst) {
-			this.InputFocus(this.getInputByPos(id - 1));
+		code.map((itemCode) => {
+			if (itemCode.id === id) {
+				itemCode.value = value;
+			}
+
+			return itemCode;
+		});
+
+		return code;
+	};
+
+	changeInput = (value, { id }) => {
+		const { inputs, deleteCodeValue, updateCodeValue } = this;
+		const inputLast = id === inputs.length;
+		if (value) {
+			this.setState(
+				{
+					code: updateCodeValue(),
+				},
+				() => {
+					const nextElement = this.getInputByPos(id + 1);
+					if (nextElement && !inputLast) {
+						this.inputFocus(nextElement);
+					}
+				}
+			);
+		} else {
+			this.setState({
+				code: deleteCodeValue(),
+			});
 		}
 	};
 
+	backspace = ({ id }) => {
+		const { code } = this.state;
+		const inputFirst = id === 1;
+		if (!inputFirst) this.inputFocus(this.getInputByPos(id - 1));
+	};
+
 	render() {
-		const { inputs, changeInput, focusInput } = this;
+		const { inputs, changeInput, backspace } = this;
 		return (
 			<View>
 				<View style={verifyCodeStyles.inputsWrapper}>
@@ -82,7 +150,7 @@ export default class VerifyCode extends Component {
 							customProps={{
 								id: input.id,
 							}}
-							action={{ change: changeInput, focus: focusInput }}
+							action={{ change: changeInput, backspace }}
 							customStyles={verifyCodeStyles.verifyCodeInput}
 						/>
 					))}
