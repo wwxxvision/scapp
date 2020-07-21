@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { verifyCodeStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
+import BackgroundTimer from 'react-native-background-timer';
 import Input from './Input';
 import Button from './Button';
 import Helpers from '../Utils/Helpers';
@@ -57,25 +58,28 @@ export default class VerifyCode extends Component {
 	}
 
 	initInterval = () => {
-		const { tickInterval } = this.state;
+		this.interval = BackgroundTimer.setInterval(() => {
+			this.decreaseIntervalTick().then((tickInterval) => {
+				const timeIsLeft = tickInterval === 0;
 
-		this.interval = setInterval((interval) => {
-			this.decreaseIntervalTick();
-			const timeIsLeft = tickInterval === 0 || tickInterval < 0;
+				if (timeIsLeft) {
+					this.resetIntervalTick();
+					this.setState({
+						currentEvent: 'waiting',
+					});
 
-			if (timeIsLeft) {
-				this.resetIntervalTick();
-				this.setState({
-					currentEvent: 'waiting',
-				});
-				clearInterval(this.interval);
-			}
-			return interval;
+					BackgroundTimer.clearInterval(this.interval);
+				}
+			});
 		}, 1000);
 	};
 
 	decreaseIntervalTick = () =>
-		this.setState({ tickInterval: this.state.tickInterval - 1 });
+		new Promise((resolve) => {
+			this.setState({ tickInterval: this.state.tickInterval - 1 }, () =>
+				resolve(this.state.tickInterval)
+			);
+		});
 
 	resetIntervalTick = () =>
 		this.setState({ tickInterval: this.props.resendSmsTime });
