@@ -10,6 +10,7 @@ import { headerStyles } from './Header';
 import { cardStyles } from './Card';
 import { progressStyles } from './Progress';
 import { modalStyles } from './Modal';
+import { stepTabsStyles } from './StepTabs';
 
 export {
 	buttonStyles,
@@ -24,4 +25,5 @@ export {
 	cardStyles,
 	progressStyles,
 	modalStyles,
+	stepTabsStyles,
 };

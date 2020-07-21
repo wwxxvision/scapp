@@ -26,4 +26,7 @@ export const modalStyles = StyleSheet.create({
 	labelText: {
 		...common.text,
 	},
+	modalBody: {
+		marginTop: 10,
+	},
 });

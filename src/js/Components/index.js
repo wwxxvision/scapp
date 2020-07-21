@@ -10,6 +10,7 @@ import Card from './Card';
 import Progress from './Progress';
 import Button from './Button';
 import ModalComponent from './Modal';
+import StepTabs from './StepTabs';
 
 export {
 	Header,
@@ -24,4 +25,5 @@ export {
 	Progress,
 	Button,
 	ModalComponent,
+	StepTabs,
 };

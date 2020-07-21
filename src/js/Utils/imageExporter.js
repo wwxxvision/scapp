@@ -16,6 +16,11 @@ import settings from '../../assets/img/settings_icon.svg';
 import arrowBack from '../../assets/img/arrow-back_icon.svg';
 import arrowUp from '../../assets/img/arrow-up_icon.svg';
 import close from '../../assets/img/close_icon.svg';
+import arrowRight from '../../assets/img/arrow-right_icon.svg';
+import creditCard from '../../assets/img/credit-card_icon.svg';
+import bank from '../../assets/img/bank_icon.svg';
+import paypal from '../../assets/img/paypal_icon.svg';
+import bitcoin from '../../assets/img/bitcoin_icon.svg';
 
 export default {
 	user,
@@ -36,4 +41,9 @@ export default {
 	arrowBack,
 	arrowUp,
 	close,
+	arrowRight,
+	creditCard,
+	bank,
+	paypal,
+	bitcoin,
 };

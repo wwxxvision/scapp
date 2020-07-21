@@ -13,6 +13,7 @@ import {
 	Card,
 	Progress,
 	ModalComponent,
+	StepTabs,
 } from './Components';
 
 const App = () => {
@@ -130,6 +131,32 @@ const App = () => {
 			{
 				title: 'Payouts',
 			},
+		],
+		fakeStepTabs = [
+			{
+				title: 'Credit Card',
+				description: 'Pay with MasterCard, Visa or Visa Electron.',
+				icon: 'creditCard',
+				linkTo: 'card',
+			},
+			{
+				title: 'Internet Banking',
+				description: 'Pay directly from your bank account.',
+				icon: 'bank',
+				linkTo: 'bank',
+			},
+			{
+				title: 'Paypal',
+				description: 'Faster & safer way to send money.',
+				icon: 'paypal',
+				linkTo: 'paypal',
+			},
+			{
+				title: 'Bitcoin Wallet',
+				description: 'Send the amount in our Bitcoin wallet.',
+				icon: 'bitcoin',
+				linkTo: 'bitcoin',
+			},
 		];
 	return (
 		<>
@@ -160,16 +187,17 @@ const App = () => {
 						title="The test title"
 						text="Lorem ipsum 2144914941 Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941"
 					/> */}
-					<Progress />
+					{/* <Progress /> */}
 					{/* <List elements={fakelistRef} /> */}
+					<StepTabs tabs={fakeStepTabs} />
 				</ScrollView>
 				<Nav theme="white" />
-				<ModalComponent
+				{/* <ModalComponent
 					title="Password recovery"
 					label="Enter your phone number. You'll get an SMS with futher instructions."
 				>
 					<Text>Test</Text>
-				</ModalComponent>
+				</ModalComponent> */}
 			</View>
 		</>
 	);
