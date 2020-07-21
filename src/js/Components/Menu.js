@@ -18,7 +18,7 @@ export default class Menu extends Component {
 									...menuStyles.getTabMargins(index),
 								}}
 							>
-								{getIconByName(tab.icon, { heigth: 22, width: 22 })}
+								{getIconByName(tab.icon, { heigth: 20, width: 25 })}
 								<Text style={menuStyles.tabTitle}>{tab.title}</Text>
 							</View>
 						</TouchableWithoutFeedback>

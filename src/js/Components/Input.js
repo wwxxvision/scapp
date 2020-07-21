@@ -7,64 +7,90 @@ import { utils } from '../../Styles/Base/utils';
 import CountryPicker from 'react-native-country-picker-modal';
 import getIconByName from '../Utils/getIconByName';
 
-export default function Input({
-	label,
-	icon,
-	theme,
-	type,
-	placeholder,
-	labelTheme,
-	action,
-}) {
-	const [privateInfoIsShowing, toggleForShowPrivateInfo] = useState(false);
-	const inputIsPrivate = type === 'private';
-	const getInputByType = () => {
-		switch (type) {
-			case 'private':
-			case 'text':
-				return (
-					<TextInput
-						placeholder={placeholder}
-						secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
-						style={{ ...inputStyles.input, ...inputStyles[theme] }}
-					/>
-				);
-			case 'phone':
-				return <CountryPicker {...{ withCallingCode: true, withFlag: false }} />;
-		}
-	};
+const Input = React.forwardRef(
+	(
+		{
+			label,
+			icon,
+			theme,
+			type,
+			placeholder,
+			labelTheme,
+			action,
+			maxLength,
+			customStyles,
+			customProps,
+		},
+		ref
+	) => {
+		const [privateInfoIsShowing, toggleForShowPrivateInfo] = useState(false);
+		const inputIsPrivate = type === 'private';
+		const getInputByType = () => {
+			switch (type) {
+				case 'private':
+				case 'text':
+					return (
+						<TextInput
+							ref={ref}
+							{...customProps}
+							maxLength={maxLength}
+							placeholder={placeholder}
+							onChangeText={(ev) => action.change(ev, customProps)}
+							secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
+							style={{ ...inputStyles.input, ...inputStyles[theme], ...customStyles }}
+						/>
+					);
+				case 'number':
+					return (
+						<TextInput
+							ref={ref}
+							{...customProps}
+							keyboardType="numeric"
+							maxLength={maxLength}
+							placeholder={placeholder}
+							onChangeText={(ev) => action.change(ev, customProps)}
+							onFocus={(ev) => action.focus(ev, customProps)}
+							secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
+							style={{ ...inputStyles.input, ...inputStyles[theme], ...customStyles }}
+						/>
+					);
+				case 'phone':
+					return <CountryPicker {...{ withCallingCode: true, withFlag: false }} />;
+			}
+		};
 
-	return (
-		<View>
-			<View style={inputStyles.inputLabel}>
-				{icon && (
-					<View>
-						{getIconByName(icon, {
-							...inputStyles.labelIcon,
-							stroke: utils.getHexColorByTheme(labelTheme),
-						})}
-					</View>
-				)}
-				<Text
-					style={{
-						...inputStyles.labelText,
-						color: utils.getHexColorByTheme(labelTheme),
-					}}
-				>
-					{label}
-				</Text>
+		return (
+			<View>
+				<View style={inputStyles.inputLabel}>
+					{icon && (
+						<View>
+							{getIconByName(icon, {
+								...inputStyles.labelIcon,
+								stroke: utils.getHexColorByTheme(labelTheme),
+							})}
+						</View>
+					)}
+					<Text
+						style={{
+							...inputStyles.labelText,
+							color: utils.getHexColorByTheme(labelTheme),
+						}}
+					>
+						{label}
+					</Text>
+				</View>
+				<View style={inputStyles.inputWrapper}>
+					{getInputByType()}
+					{inputIsPrivate && (
+						<View style={inputStyles.inputPrivateTogglerIcon}>
+							{getIconByName('oko')}
+						</View>
+					)}
+				</View>
 			</View>
-			<View style={inputStyles.inputWrapper}>
-				{getInputByType()}
-				{inputIsPrivate && (
-					<View style={inputStyles.inputPrivateTogglerIcon}>
-						{getIconByName('oko')}
-					</View>
-				)}
-			</View>
-		</View>
-	);
-}
+		);
+	}
+);
 
 Input.defaultProps = {
 	type: 'text',
@@ -75,6 +101,11 @@ Input.PropsTypes = {
 	type: PropsTypes.string,
 	theme: PropsTypes.string,
 	icon: PropsTypes.string,
+	customStyles: PropsTypes.object,
+	customProps: PropsTypes.object,
 	placeholder: PropsTypes.string,
+	maxLength: PropsTypes.number,
 	action: PropsTypes.func,
 };
+
+export default Input;

@@ -12,6 +12,7 @@ import Button from './Button';
 import ModalComponent from './Modal';
 import StepTabs from './StepTabs';
 import Menu from './Menu';
+import VerifyCode from './VerifyCode';
 
 export {
 	Header,
@@ -28,4 +29,5 @@ export {
 	ModalComponent,
 	StepTabs,
 	Menu,
+	VerifyCode,
 };

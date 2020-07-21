@@ -15,6 +15,7 @@ import {
 	ModalComponent,
 	StepTabs,
 	Menu,
+	VerifyCode,
 } from './Components';
 
 const App = () => {
@@ -217,8 +218,9 @@ const App = () => {
 					/> */}
 					{/* <Progress /> */}
 					{/* <List elements={fakelistRef} /> */}
-					<Menu tabs={fakeMenuTabs} />
-					<StepTabs tabs={fakeStepTabs} />
+					<VerifyCode />
+					{/* <Menu tabs={fakeMenuTabs} />
+					<StepTabs tabs={fakeStepTabs} /> */}
 				</ScrollView>
 				<Nav theme="white" />
 				{/* <ModalComponent
