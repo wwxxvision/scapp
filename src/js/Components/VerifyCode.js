@@ -65,6 +65,9 @@ export default class VerifyCode extends Component {
 
 				if (timeIsLeft) {
 					this.resetIntervalTick();
+					this.setState({
+						currentEvent: 'waiting',
+					});
 					clearInterval(this.interval);
 				}
 				return interval;
@@ -89,6 +92,20 @@ export default class VerifyCode extends Component {
 		}
 
 		return false;
+	};
+
+	getButtonTheme = () => {
+		const { currentEvent } = this.state;
+
+		switch (currentEvent) {
+			case 'invalid':
+			case 'waiting':
+				return 'lightBlue';
+			case 'sending':
+				return 'opacity';
+			default:
+				return 'lightBlue';
+		}
 	};
 
 	deleteCodeValue = (id) => {
@@ -148,10 +165,7 @@ export default class VerifyCode extends Component {
 
 	pressVerify = () => {
 		const { initInterval, getCodeValueHowNumber } = this;
-		const { currentEvent } = this.state;
 		const code = getCodeValueHowNumber();
-
-		console.log(code);
 
 		this.setState({
 			currentEvent: 'waiting',
@@ -182,7 +196,15 @@ export default class VerifyCode extends Component {
 	};
 
 	render() {
-		const { inputs, changeInput, backspace, pressVerify, getValidateText } = this;
+		const {
+			inputs,
+			changeInput,
+			backspace,
+			pressVerify,
+			getValidateText,
+			getButtonTheme,
+		} = this;
+		const { currentEvent } = this.state;
 
 		return (
 			<View>
@@ -196,6 +218,7 @@ export default class VerifyCode extends Component {
 							customProps={{
 								id: input.id,
 							}}
+							isInvalid={currentEvent === 'invalid'}
 							action={{ change: changeInput, backspace }}
 							customStyles={verifyCodeStyles.verifyCodeInput}
 						/>
@@ -203,7 +226,7 @@ export default class VerifyCode extends Component {
 				</View>
 				{getValidateText()}
 				<View>
-					<Button action={pressVerify} title="Verify" theme="lightBlue" />
+					<Button action={pressVerify} title="Verify" theme={getButtonTheme()} />
 				</View>
 			</View>
 		);

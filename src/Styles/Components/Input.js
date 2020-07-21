@@ -52,4 +52,8 @@ export const inputStyles = StyleSheet.create({
 		right: padding_left_right,
 		transform: [{ translateY: -inputHeight / 2 + iconSize }],
 	},
+	invalid: {
+		borderWidth: 1,
+		borderColor: colors.red,
+	},
 });

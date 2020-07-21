@@ -20,6 +20,7 @@ const Input = React.forwardRef(
 			maxLength,
 			customStyles,
 			customProps,
+			isInvalid,
 		},
 		ref
 	) => {
@@ -27,6 +28,7 @@ const Input = React.forwardRef(
 		const [value, setValue] = useState(null);
 		const inputIsPrivate = type === 'private';
 		const getInputByType = () => {
+			const invalidStyles = isInvalid ? inputStyles.invalid : null;
 			switch (type) {
 				case 'private':
 				case 'text':
@@ -48,7 +50,12 @@ const Input = React.forwardRef(
 							}}
 							onFocus={(ev) => (action.focus ? action.focus(ev, customProps) : null)}
 							secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
-							style={{ ...inputStyles.input, ...inputStyles[theme], ...customStyles }}
+							style={{
+								...inputStyles.input,
+								...inputStyles[theme],
+								...customStyles,
+								...invalidStyles,
+							}}
 						/>
 					);
 				case 'number':
@@ -71,7 +78,12 @@ const Input = React.forwardRef(
 							}}
 							onFocus={(ev) => (action.focus ? action.focus(ev, customProps) : null)}
 							secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
-							style={{ ...inputStyles.input, ...inputStyles[theme], ...customStyles }}
+							style={{
+								...inputStyles.input,
+								...inputStyles[theme],
+								...customStyles,
+								...invalidStyles,
+							}}
 						/>
 					);
 				case 'phone':
@@ -121,6 +133,7 @@ Input.PropsTypes = {
 	type: PropsTypes.string,
 	theme: PropsTypes.string,
 	icon: PropsTypes.string,
+	isInvalid: PropsTypes.boolean,
 	customStyles: PropsTypes.object,
 	customProps: PropsTypes.object,
 	placeholder: PropsTypes.string,
