@@ -267,3 +267,8 @@ export default class VerifyCode extends Component {
 		);
 	}
 }
+
+VerifyCode.PropsTypes = {
+	textValidation: PropsTypes.string.isRequired,
+	resendSmsTime: PropsTypes.number.isRequired,
+};
