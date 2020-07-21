@@ -21,6 +21,11 @@ import creditCard from '../../assets/img/credit-card_icon.svg';
 import bank from '../../assets/img/bank_icon.svg';
 import paypal from '../../assets/img/paypal_icon.svg';
 import bitcoin from '../../assets/img/bitcoin_icon.svg';
+import profile from '../../assets/img/profile_icon.svg';
+import withdrawl from '../../assets/img/withdrawl_icon.svg';
+import supportCall from '../../assets/img/support-call_icon.svg';
+import feedback from '../../assets/img/feedback_icon.svg';
+import logout from '../../assets/img/logout_icon.svg';
 
 export default {
 	user,
@@ -46,4 +51,9 @@ export default {
 	bank,
 	paypal,
 	bitcoin,
+	profile,
+	withdrawl,
+	supportCall,
+	feedback,
+	logout,
 };

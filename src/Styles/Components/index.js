@@ -11,6 +11,7 @@ import { cardStyles } from './Card';
 import { progressStyles } from './Progress';
 import { modalStyles } from './Modal';
 import { stepTabsStyles } from './StepTabs';
+import { menuStyles } from './Menu';
 
 export {
 	buttonStyles,
@@ -26,4 +27,5 @@ export {
 	progressStyles,
 	modalStyles,
 	stepTabsStyles,
+	menuStyles,
 };

@@ -14,6 +14,7 @@ import {
 	Progress,
 	ModalComponent,
 	StepTabs,
+	Menu,
 } from './Components';
 
 const App = () => {
@@ -157,6 +158,33 @@ const App = () => {
 				icon: 'bitcoin',
 				linkTo: 'bitcoin',
 			},
+		],
+		fakeMenuTabs = [
+			{
+				title: 'Edit Profile',
+				icon: 'profile',
+				linkTo: 'editProfile',
+			},
+			{
+				title: 'Withdrawal Options',
+				icon: 'withdrawl',
+				linkTo: 'withdrawlOption',
+			},
+			{
+				title: 'Help & Support',
+				icon: 'supportCall',
+				linkTo: 'support',
+			},
+			{
+				title: 'Give us feedback',
+				icon: 'feedback',
+				linkTo: 'feedback',
+			},
+			{
+				title: 'Logout',
+				icon: 'logout',
+				linkTo: 'logout',
+			},
 		];
 	return (
 		<>
@@ -189,6 +217,7 @@ const App = () => {
 					/> */}
 					{/* <Progress /> */}
 					{/* <List elements={fakelistRef} /> */}
+					<Menu tabs={fakeMenuTabs} />
 					<StepTabs tabs={fakeStepTabs} />
 				</ScrollView>
 				<Nav theme="white" />

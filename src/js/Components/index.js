@@ -11,6 +11,7 @@ import Progress from './Progress';
 import Button from './Button';
 import ModalComponent from './Modal';
 import StepTabs from './StepTabs';
+import Menu from './Menu';
 
 export {
 	Header,
@@ -26,4 +27,5 @@ export {
 	Button,
 	ModalComponent,
 	StepTabs,
+	Menu,
 };
