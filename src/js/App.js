@@ -212,7 +212,8 @@ const App = () => {
 					<Input label="Test" labelTheme="darkBlue" icon="user" /> */}
 					<Input
 						label="Test"
-						icon="user"
+						icon="call"
+						labelTheme="darkBlue"
 						type="phone"
 						country={{ code: 'RU', phoneCode: '+7' }}
 					/>

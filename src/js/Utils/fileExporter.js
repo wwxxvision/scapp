@@ -1,3 +1,3 @@
-const phoneCodeOfCountries = require('../Store/countries.json');
+let phoneCodeOfCountries = require('../Store/countries.json');
 
 export { phoneCodeOfCountries };

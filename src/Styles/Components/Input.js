@@ -44,6 +44,13 @@ export const inputStyles = StyleSheet.create({
 		fontFamily: fonts.popins,
 		...utils.disableFontPadding,
 	},
+	hiddenPicker: {
+		position: 'absolute',
+		zIndex: 900,
+		height: '100%',
+		width: 70,
+		opacity: 0,
+	},
 	input: {
 		height: inputHeight,
 		width: '100%',

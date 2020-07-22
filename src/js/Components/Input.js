@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { inputStyles } from '../../Styles/Components/';
 import PropsTypes from 'prop-types';
 import { utils } from '../../Styles/Base/utils';
 import getIconByName from '../Utils/getIconByName';
+import RNPickerSelect from 'react-native-picker-select';
+import { phoneCodeOfCountries } from '../Utils/fileExporter';
 
 const Input = React.forwardRef(
 	(
@@ -66,19 +68,26 @@ const Input = React.forwardRef(
 					return (
 						<View style={inputStyles.phoneInputContainer}>
 							<View style={inputStyles.phoneCodePickerContainer}>
-								<TouchableWithoutFeedback onPress={action.press}>
-									<View style={inputStyles.phoneCodeElements}>
-										{getIconByName(country.code, {
-											width: 18,
-											height: 18,
-											style: inputStyles.flag,
-										})}
-										<Text style={inputStyles.countryPhoneCode}>{country.phoneCode}</Text>
-										{getIconByName('arrowDown', {
-											style: inputStyles.picker,
-										})}
-									</View>
-								</TouchableWithoutFeedback>
+								<View style={inputStyles.phoneCodeElements}>
+									{getIconByName(country.code, {
+										width: 18,
+										height: 18,
+										style: inputStyles.flag,
+									})}
+									<Text style={inputStyles.countryPhoneCode}>{country.phoneCode}</Text>
+									{getIconByName('arrowDown', {
+										style: inputStyles.picker,
+									})}
+								</View>
+							</View>
+							<View style={inputStyles.hiddenPicker}>
+								<RNPickerSelect
+									onValueChange={(value) => (action.press ? action.press(value) : null)}
+									items={phoneCodeOfCountries.map((country) => ({
+										label: country.name,
+										value: country,
+									}))}
+								/>
 							</View>
 							<TextInput
 								ref={ref}
