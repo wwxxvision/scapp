@@ -16,6 +16,7 @@ import {
 	StepTabs,
 	Menu,
 	VerifyCode,
+	PageSlider,
 } from './Components';
 import CONSTANTS from './Constants/';
 
@@ -197,19 +198,21 @@ const App = () => {
 				}}
 			>
 				<Header type="tab" theme="lightBlue" tabs={fakeTabs} />
-				<ScrollView style={{ flex: 1 }}>
+				<ScrollView
+					contentContainerStyle={{ flexGrow: 1 }}
+					style={{ flex: 1, position: 'relative' }}
+				>
 					<Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
-					{/* <Button theme="danger" title="Button" />
+					<Button theme="danger" title="Button" />
 					<Button theme="lightBlue" title="Button" />
 					<Button theme="darkBlue" title="Button" />
 					<Button theme="white" title="Button" />
 					<Button theme="disable" title="Button" />
 					<Button theme="opacity" title="Button" />
-					<Input label="Test" labelTheme="darkBlue" type="private" icon="lock" />
 					<Input label="Test" labelTheme="darkBlue" icon="network" />
 					<Input label="Test" labelTheme="darkBlue" icon="birthDay" />
-					<Input label="Test" labelTheme="darkBlue" icon="user" /> */}
+					<Input label="Test" labelTheme="darkBlue" icon="user" />
 					<Input
 						label="Test"
 						icon="call"
@@ -217,7 +220,7 @@ const App = () => {
 						type="phone"
 						country={{ code: 'RU', phoneCode: '+7' }}
 					/>
-					{/* <SelectList type="checkboxes" elements={fakelist} />
+					<SelectList type="checkboxes" elements={fakelist} />
 					<SelectList type="radio" elements={fakelist} />
 					<Card
 						title="The test title"
@@ -229,7 +232,7 @@ const App = () => {
 						resendSmsTime={CONSTANTS.APP.RESEND_SMS_TIME}
 					/>
 					<Menu tabs={fakeMenuTabs} />
-					<StepTabs tabs={fakeStepTabs} /> */}
+					<StepTabs tabs={fakeStepTabs} />
 				</ScrollView>
 				<Nav theme="white" />
 			</View>

@@ -13,6 +13,7 @@ import { modalStyles } from './Modal';
 import { stepTabsStyles } from './StepTabs';
 import { menuStyles } from './Menu';
 import { verifyCodeStyles } from './VerifyCode';
+import { pageSliderStyles } from './PageSlider';
 
 export {
 	buttonStyles,
@@ -30,4 +31,5 @@ export {
 	stepTabsStyles,
 	menuStyles,
 	verifyCodeStyles,
+	pageSliderStyles,
 };

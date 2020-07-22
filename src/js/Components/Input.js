@@ -82,7 +82,9 @@ const Input = React.forwardRef(
 							</View>
 							<View style={inputStyles.hiddenPicker}>
 								<RNPickerSelect
-									onValueChange={(value) => (action.press ? action.press(value) : null)}
+									onValueChange={(value) =>
+										action.select ? action.select(value) : null
+									}
 									items={phoneCodeOfCountries.map((country) => ({
 										label: country.name,
 										value: country,

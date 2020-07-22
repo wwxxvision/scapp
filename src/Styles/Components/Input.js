@@ -54,7 +54,7 @@ export const inputStyles = StyleSheet.create({
 	input: {
 		height: inputHeight,
 		width: '100%',
-		borderRadius: 5,
+		borderRadius: 7,
 		paddingVertical: 0,
 		paddingLeft: padding_left_right,
 		paddingRight: padding_left_right + iconSize + 2,

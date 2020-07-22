@@ -13,6 +13,7 @@ import ModalComponent from './Modal';
 import StepTabs from './StepTabs';
 import Menu from './Menu';
 import VerifyCode from './VerifyCode';
+import PageSlider from './PageSlider';
 
 export {
 	Header,
@@ -30,4 +31,5 @@ export {
 	StepTabs,
 	Menu,
 	VerifyCode,
+	PageSlider,
 };
