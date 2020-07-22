@@ -251,6 +251,7 @@ export default class VerifyCode extends Component {
 							customProps={{
 								id: input.id,
 							}}
+							keyboardType="numeric"
 							editable={currentEvent !== 'sending'}
 							isInvalid={currentEvent === 'invalid'}
 							action={{ change: changeInput, backspace }}

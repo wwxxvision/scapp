@@ -22,6 +22,7 @@ const Input = React.forwardRef(
 			customProps,
 			isInvalid,
 			editable,
+			keyboardType,
 		},
 		ref
 	) => {
@@ -33,40 +34,13 @@ const Input = React.forwardRef(
 			switch (type) {
 				case 'private':
 				case 'text':
-					return (
-						<TextInput
-							ref={ref}
-							{...customProps}
-							maxLength={maxLength}
-							placeholder={placeholder}
-							onKeyPress={({ nativeEvent }) => {
-								if (nativeEvent.key === 'Backspace' && action.backspace)
-									action.backspace(customProps);
-							}}
-							onChangeText={(value) => {
-								if (action.change) {
-									action.change(value, customProps);
-								}
-								setValue(value);
-							}}
-							onFocus={(ev) => (action.focus ? action.focus(ev, customProps) : null)}
-							secureTextEntry={inputIsPrivate && !privateInfoIsShowing}
-							style={{
-								...inputStyles.input,
-								...inputStyles[theme],
-								...customStyles,
-								...invalidStyles,
-							}}
-							editable={editable}
-						/>
-					);
 				case 'number':
 					return (
 						<TextInput
 							ref={ref}
 							{...customProps}
-							keyboardType="numeric"
 							maxLength={maxLength}
+							keyboardType={keyboardType}
 							placeholder={placeholder}
 							onKeyPress={({ nativeEvent }) => {
 								if (nativeEvent.key === 'Backspace' && action.backspace)
@@ -130,12 +104,14 @@ const Input = React.forwardRef(
 Input.defaultProps = {
 	type: 'text',
 	theme: 'cream',
+	keyboardType: 'default',
 };
 
 Input.PropsTypes = {
 	type: PropsTypes.string,
 	theme: PropsTypes.string,
 	icon: PropsTypes.string,
+	keyboardType: PropsTypes.string,
 	isInvalid: PropsTypes.boolean,
 	editable: PropsTypes.boolean,
 	customStyles: PropsTypes.object,
