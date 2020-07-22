@@ -2,11 +2,10 @@ import { variables, utils } from '../Base/';
 import { StyleSheet } from 'react-native';
 
 const { colors, fonts } = variables;
-const padding_top_bottom = 10;
 const padding_left_right = 10;
 const inputHeight = 40;
 const iconSize = 13;
-const flagSize = 17;
+const flagSize = 16;
 export const inputStyles = StyleSheet.create({
 	inputLabel: {
 		display: 'flex',
@@ -16,39 +15,46 @@ export const inputStyles = StyleSheet.create({
 		paddingRight: 10,
 		marginTop: 3,
 	},
-	inputPhoneContainer: {
-		position: 'relative',
-	},
-	inputCountryContainer: {
-		position: 'absolute',
-		zIndex: 200,
-		top: '50%',
-		transform: [{ translateY: -inputHeight / 2 + flagSize / 2 }],
-		...utils.flex('row'),
-		alignItems: 'center',
-	},
-	flagStyle: {
-		height: flagSize,
-		width: flagSize,
-		borderRadius: 3,
-	},
 	inputWrapper: {
 		position: 'relative',
 		height: inputHeight,
 		width: '100%',
 		marginTop: 10,
 	},
+	phoneInputContainer: {
+		position: 'relative',
+	},
+	phoneCodePickerContainer: {
+		position: 'absolute',
+		zIndex: 200,
+		top: '50%',
+		left: 11,
+		transform: [{ translateY: -inputHeight / 2 + flagSize / 2 }],
+	},
+	picker: {
+		marginLeft: 7,
+	},
+	phoneCodeElements: {
+		...utils.flex('row'),
+		alignItems: 'center',
+	},
+	countryPhoneCode: {
+		marginLeft: 7,
+		fontSize: 14,
+		fontFamily: fonts.popins,
+		...utils.disableFontPadding,
+	},
 	input: {
 		height: inputHeight,
 		width: '100%',
 		borderRadius: 5,
-		textAlignVertical: 'center',
 		paddingVertical: 0,
 		paddingLeft: padding_left_right,
 		paddingRight: padding_left_right + iconSize + 2,
 		fontFamily: fonts.popins,
 		fontSize: 14,
 	},
+
 	cream: {
 		backgroundColor: colors.cream,
 	},

@@ -198,9 +198,9 @@ const App = () => {
 			>
 				<Header type="tab" theme="lightBlue" tabs={fakeTabs} />
 				<ScrollView style={{ flex: 1 }}>
-					{/* <Tag text="It is a tag" />
+					<Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
-					<Button theme="danger" title="Button" />
+					{/* <Button theme="danger" title="Button" />
 					<Button theme="lightBlue" title="Button" />
 					<Button theme="darkBlue" title="Button" />
 					<Button theme="white" title="Button" />
@@ -210,7 +210,12 @@ const App = () => {
 					<Input label="Test" labelTheme="darkBlue" icon="network" />
 					<Input label="Test" labelTheme="darkBlue" icon="birthDay" />
 					<Input label="Test" labelTheme="darkBlue" icon="user" /> */}
-					<Input label="Test" labelTheme="darkBlue" icon="user" type="phone" />
+					<Input
+						label="Test"
+						icon="user"
+						type="phone"
+						country={{ code: 'RU', phoneCode: '+7' }}
+					/>
 					{/* <SelectList type="checkboxes" elements={fakelist} />
 					<SelectList type="radio" elements={fakelist} />
 					<Card

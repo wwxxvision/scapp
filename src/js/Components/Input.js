@@ -1,13 +1,9 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import { inputStyles } from '../../Styles/Components/';
 import PropsTypes from 'prop-types';
 import { utils } from '../../Styles/Base/utils';
 import getIconByName from '../Utils/getIconByName';
-import Flag from 'react-native-flags';
-import CountryCodeList from 'react-native-country-code-list';
-
-const countries = require('../Store/countries.json');
 
 const Input = React.forwardRef(
 	(
@@ -25,15 +21,13 @@ const Input = React.forwardRef(
 			isInvalid,
 			editable,
 			keyboardType,
-			initialCountry,
+			country,
 		},
 		ref
 	) => {
 		const [privateInfoIsShowing, toggleForShowPrivateInfo] = useState(false);
 		const [value, setValue] = useState(null);
-		const [selectedCountry, selecCountry] = useState(initialCountry);
 		const inputIsPrivate = type === 'private';
-
 		const getInputByType = () => {
 			const invalidStyles = isInvalid ? inputStyles.invalid : null;
 			switch (type) {
@@ -70,22 +64,39 @@ const Input = React.forwardRef(
 					);
 				case 'phone':
 					return (
-						<View style={inputStyles.inputPhoneContainer}>
-							<View style={inputStyles.inputCountryContainer}>
-								<Flag
-									type="flat"
-									style={inputStyles.flagStyle}
-									code={selectedCountry}
-								/>
-								<Text></Text>
+						<View style={inputStyles.phoneInputContainer}>
+							<View style={inputStyles.phoneCodePickerContainer}>
+								<TouchableWithoutFeedback onPress={action.press}>
+									<View style={inputStyles.phoneCodeElements}>
+										{getIconByName(country.code, {
+											width: 18,
+											height: 18,
+											style: inputStyles.flag,
+										})}
+										<Text style={inputStyles.countryPhoneCode}>{country.phoneCode}</Text>
+										{getIconByName('arrowDown', {
+											style: inputStyles.picker,
+										})}
+									</View>
+								</TouchableWithoutFeedback>
 							</View>
 							<TextInput
+								ref={ref}
+								{...customProps}
+								maxLength={maxLength}
+								placeholder={placeholder}
+								onChangeText={(value) => {
+									if (action.change) {
+										action.change(value, customProps);
+									}
+									setValue(value);
+								}}
 								style={{
 									...inputStyles.input,
 									...inputStyles[theme],
 									...customStyles,
-
 									...invalidStyles,
+									paddingLeft: 70,
 								}}
 							/>
 						</View>
@@ -131,14 +142,12 @@ Input.defaultProps = {
 	theme: 'cream',
 	keyboardType: 'default',
 	action: {},
-	initialCountry: 'US',
 };
 
 Input.PropsTypes = {
 	type: PropsTypes.string,
 	theme: PropsTypes.string,
 	icon: PropsTypes.string,
-	initialCountry: PropsTypes.string,
 	keyboardType: PropsTypes.string,
 	isInvalid: PropsTypes.boolean,
 	editable: PropsTypes.boolean,
@@ -147,6 +156,7 @@ Input.PropsTypes = {
 	placeholder: PropsTypes.string,
 	maxLength: PropsTypes.number,
 	action: PropsTypes.object,
+	country: PropsTypes.object,
 };
 
 export default Input;
