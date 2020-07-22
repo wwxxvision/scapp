@@ -6,6 +6,7 @@ const padding_top_bottom = 10;
 const padding_left_right = 10;
 const inputHeight = 40;
 const iconSize = 13;
+const flagSize = 17;
 export const inputStyles = StyleSheet.create({
 	inputLabel: {
 		display: 'flex',
@@ -14,6 +15,22 @@ export const inputStyles = StyleSheet.create({
 		paddingLeft: 10,
 		paddingRight: 10,
 		marginTop: 3,
+	},
+	inputPhoneContainer: {
+		position: 'relative',
+	},
+	inputCountryContainer: {
+		position: 'absolute',
+		zIndex: 200,
+		top: '50%',
+		transform: [{ translateY: -inputHeight / 2 + flagSize / 2 }],
+		...utils.flex('row'),
+		alignItems: 'center',
+	},
+	flagStyle: {
+		height: flagSize,
+		width: flagSize,
+		borderRadius: 3,
 	},
 	inputWrapper: {
 		position: 'relative',
@@ -25,7 +42,8 @@ export const inputStyles = StyleSheet.create({
 		height: inputHeight,
 		width: '100%',
 		borderRadius: 5,
-		paddingVertical: padding_top_bottom,
+		textAlignVertical: 'center',
+		paddingVertical: 0,
 		paddingLeft: padding_left_right,
 		paddingRight: padding_left_right + iconSize + 2,
 		fontFamily: fonts.popins,

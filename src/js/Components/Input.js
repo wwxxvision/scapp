@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { inputStyles } from '../../Styles/Components/';
 import PropsTypes from 'prop-types';
-import icons from '../Utils/imageExporter';
 import { utils } from '../../Styles/Base/utils';
-import CountryPicker from 'react-native-country-picker-modal';
 import getIconByName from '../Utils/getIconByName';
+import Flag from 'react-native-flags';
+import CountryCodeList from 'react-native-country-code-list';
+
+const countries = require('../Store/countries.json');
 
 const Input = React.forwardRef(
 	(
@@ -23,12 +25,15 @@ const Input = React.forwardRef(
 			isInvalid,
 			editable,
 			keyboardType,
+			initialCountry,
 		},
 		ref
 	) => {
 		const [privateInfoIsShowing, toggleForShowPrivateInfo] = useState(false);
 		const [value, setValue] = useState(null);
+		const [selectedCountry, selecCountry] = useState(initialCountry);
 		const inputIsPrivate = type === 'private';
+
 		const getInputByType = () => {
 			const invalidStyles = isInvalid ? inputStyles.invalid : null;
 			switch (type) {
@@ -64,7 +69,27 @@ const Input = React.forwardRef(
 						/>
 					);
 				case 'phone':
-					return <CountryPicker {...{ withCallingCode: true, withFlag: false }} />;
+					return (
+						<View style={inputStyles.inputPhoneContainer}>
+							<View style={inputStyles.inputCountryContainer}>
+								<Flag
+									type="flat"
+									style={inputStyles.flagStyle}
+									code={selectedCountry}
+								/>
+								<Text></Text>
+							</View>
+							<TextInput
+								style={{
+									...inputStyles.input,
+									...inputStyles[theme],
+									...customStyles,
+
+									...invalidStyles,
+								}}
+							/>
+						</View>
+					);
 			}
 		};
 
@@ -105,12 +130,15 @@ Input.defaultProps = {
 	type: 'text',
 	theme: 'cream',
 	keyboardType: 'default',
+	action: {},
+	initialCountry: 'US',
 };
 
 Input.PropsTypes = {
 	type: PropsTypes.string,
 	theme: PropsTypes.string,
 	icon: PropsTypes.string,
+	initialCountry: PropsTypes.string,
 	keyboardType: PropsTypes.string,
 	isInvalid: PropsTypes.boolean,
 	editable: PropsTypes.boolean,
@@ -118,7 +146,7 @@ Input.PropsTypes = {
 	customProps: PropsTypes.object,
 	placeholder: PropsTypes.string,
 	maxLength: PropsTypes.number,
-	action: PropsTypes.func,
+	action: PropsTypes.object,
 };
 
 export default Input;
