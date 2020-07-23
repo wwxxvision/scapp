@@ -43,11 +43,11 @@ export default class Switch extends Component {
 						? switchStyles.activeText
 						: null;
 					return (
-						<TouchableWithoutFeedback onPress={() => pressTab(element, index)}>
-							<View
-								key={index}
-								style={{ ...switchStyles.element, ...activeStyleElement }}
-							>
+						<TouchableWithoutFeedback
+							key={index}
+							onPress={() => pressTab(element, index)}
+						>
+							<View style={{ ...switchStyles.element, ...activeStyleElement }}>
 								<Text
 									style={{ ...switchStyles.textElement, ...activeStyleTextElement }}
 								>

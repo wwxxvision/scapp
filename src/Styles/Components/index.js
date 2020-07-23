@@ -15,6 +15,7 @@ import { menuStyles } from './Menu';
 import { verifyCodeStyles } from './VerifyCode';
 import { pageSliderStyles } from './PageSlider';
 import { switchStyles } from './Switch';
+import { chartStyles } from './Chart';
 
 export {
 	buttonStyles,
@@ -34,4 +35,5 @@ export {
 	verifyCodeStyles,
 	pageSliderStyles,
 	switchStyles,
+	chartStyles,
 };

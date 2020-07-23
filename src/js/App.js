@@ -18,6 +18,7 @@ import {
 	VerifyCode,
 	PageSlider,
 	Switch,
+	Chart,
 } from './Components';
 import CONSTANTS from './Constants/';
 
@@ -200,7 +201,75 @@ const App = () => {
 			{
 				title: 'All Time',
 			},
-		];
+		],
+		fakeChartProps = {
+			categories: {
+				x: [
+					'Jan',
+					'Feb',
+					'Mar',
+					'Apr',
+					'May',
+					'Jun',
+					'Jul',
+					'Aug',
+					'Sep',
+					'Oct',
+					'Nov',
+					'Dec',
+				],
+			},
+			data: [
+				{
+					x: 'Jan',
+					y: 5,
+				},
+				{
+					x: 'Feb',
+					y: 2,
+				},
+				{
+					x: 'Mar',
+					y: 0,
+				},
+				{
+					x: 'Apr',
+					y: 5,
+				},
+				{
+					x: 'May',
+					y: 3,
+				},
+				{
+					x: 'Jun',
+					y: 1,
+				},
+				{
+					x: 'Jul',
+					y: 1,
+				},
+				{
+					x: 'Aug',
+					y: 2,
+				},
+				{
+					x: 'Sep',
+					y: 1,
+				},
+				{
+					x: 'Oct',
+					y: 1,
+				},
+				{
+					x: 'Nov',
+					y: 1,
+				},
+				{
+					x: 'Dec',
+					y: 2,
+				},
+			],
+		};
 	return (
 		<>
 			<View
@@ -228,11 +297,12 @@ const App = () => {
 					contentContainerStyle={{ flexGrow: 1 }}
 					style={{ flex: 1, position: 'relative' }}
 				>
-					<Switch
+					<Chart chartProps={fakeChartProps} />
+					{/* <Switch
 						elements={fakeSwitchElements}
 						theme="selago"
 						action={() => false}
-					/>
+					/> */}
 					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
 					<Button theme="danger" title="Button" />

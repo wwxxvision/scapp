@@ -29,7 +29,8 @@
     "react-native-picker-select": "^7.0.0",
     "react-native-shadow": "^1.2.2",
     "react-native-snap-carousel": "^3.9.1",
-    "react-native-svg": "^12.1.0"
+    "react-native-svg": "^12.1.0",
+    "victory-native": "^35.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

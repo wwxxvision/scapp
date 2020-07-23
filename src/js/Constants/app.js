@@ -3,4 +3,7 @@ export const APP = {
 	ERRORS: {
 		INVALID_VERIFY_CODE: 'Invalid code',
 	}, // in s
+	CHART: {
+		MAX_VIEW_ITEMS: 6,
+	},
 };
