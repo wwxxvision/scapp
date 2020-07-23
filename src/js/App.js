@@ -17,6 +17,7 @@ import {
 	Menu,
 	VerifyCode,
 	PageSlider,
+	Switch,
 } from './Components';
 import CONSTANTS from './Constants/';
 
@@ -188,6 +189,17 @@ const App = () => {
 				icon: 'logout',
 				linkTo: 'logout',
 			},
+		],
+		fakeSwitchElements = [
+			{
+				title: 'Weekly',
+			},
+			{
+				title: 'Monthly',
+			},
+			{
+				title: 'All Time',
+			},
 		];
 	return (
 		<>
@@ -197,7 +209,7 @@ const App = () => {
 					backgroundColor: 'white',
 				}}
 			>
-				<PageSlider
+				{/* <PageSlider
 					indicatorsTheme="lightBlue"
 					indicatorsLocation="center"
 					useButtons={true}
@@ -210,12 +222,17 @@ const App = () => {
 					]}
 					lastButtonTitle="Get started"
 					lastButtonAction={() => false}
-				/>
+				/> */}
 				{/* <Header type="tab" theme="lightBlue" tabs={fakeTabs} /> */}
 				<ScrollView
 					contentContainerStyle={{ flexGrow: 1 }}
 					style={{ flex: 1, position: 'relative' }}
 				>
+					<Switch
+						elements={fakeSwitchElements}
+						theme="selago"
+						action={() => false}
+					/>
 					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
 					<Button theme="danger" title="Button" />

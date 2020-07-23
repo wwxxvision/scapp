@@ -18,6 +18,7 @@ export const variables = {
 		wildSand: '#F4F4F4',
 		mercury: '#E6E6E6',
 		orange: '#FFB54A',
+		selago: '#E3EFFB',
 	},
 	fonts: {
 		popinsBold: 'Poppins-Bold',

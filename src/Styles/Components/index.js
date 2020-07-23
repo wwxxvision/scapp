@@ -14,6 +14,7 @@ import { stepTabsStyles } from './StepTabs';
 import { menuStyles } from './Menu';
 import { verifyCodeStyles } from './VerifyCode';
 import { pageSliderStyles } from './PageSlider';
+import { switchStyles } from './Switch';
 
 export {
 	buttonStyles,
@@ -32,4 +33,5 @@ export {
 	menuStyles,
 	verifyCodeStyles,
 	pageSliderStyles,
+	switchStyles,
 };

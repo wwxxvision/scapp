@@ -14,6 +14,7 @@ import StepTabs from './StepTabs';
 import Menu from './Menu';
 import VerifyCode from './VerifyCode';
 import PageSlider from './PageSlider';
+import Switch from './Switch';
 
 export {
 	Header,
@@ -32,4 +33,5 @@ export {
 	Menu,
 	VerifyCode,
 	PageSlider,
+	Switch,
 };
