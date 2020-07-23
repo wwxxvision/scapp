@@ -198,6 +198,7 @@ const App = () => {
 				}}
 			>
 				<PageSlider
+					indicatorsTheme="lightBlue"
 					indicatorsLocation="center"
 					pages={[
 						<SelectList type="radio" elements={fakelist} />,

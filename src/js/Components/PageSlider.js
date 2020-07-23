@@ -40,7 +40,7 @@ export default class PageSlider extends Component {
 	};
 
 	render() {
-		const { pages, indicatorsLocation } = this.props;
+		const { pages, indicatorsLocation, indicatorsTheme } = this.props;
 		const { selectedIndex } = this.state;
 		const { pressForNextIndex, setSelectedIndex, scrollRef } = this;
 
@@ -76,7 +76,7 @@ export default class PageSlider extends Component {
 							...pageSliderStyles.getIndicatorsLocation(indicatorsLocation),
 						}}
 					>
-						{pages.map((item, index) => {
+						{pages.map((page, index) => {
 							const isActiveIndicator = selectedIndex === index;
 							const margins = pageSliderStyles.getIndicatorMargins(index);
 
@@ -85,6 +85,7 @@ export default class PageSlider extends Component {
 									style={{
 										...pageSliderStyles.indicator,
 										...margins,
+										...pageSliderStyles.getStylesByThemeIndicator(indicatorsTheme),
 										...pageSliderStyles.getActiveIndicatorStyles(isActiveIndicator),
 									}}
 									key={index}
@@ -93,7 +94,7 @@ export default class PageSlider extends Component {
 						})}
 					</View>
 					<View style={pageSliderStyles.slidesContainer}>
-						<Button action={pressForNextIndex} title="next" />
+						<Button theme={indicatorsTheme} action={pressForNextIndex} title="next" />
 					</View>
 				</View>
 			</View>

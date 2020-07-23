@@ -11,7 +11,7 @@ export const pageSliderStyles = StyleSheet.create({
 		...utils.flex('column'),
 		position: 'absolute',
 		width: '100%',
-		bottom: container.wrapper.padding,
+		bottom: 0,
 	},
 	slidesContainer: {
 		padding: container.wrapper.padding,
@@ -23,7 +23,6 @@ export const pageSliderStyles = StyleSheet.create({
 	indicator: {
 		height: 6,
 		width: 6,
-		backgroundColor: colors.light_blue,
 		borderRadius: 50,
 	},
 	slide: (deviceWidth) => ({
@@ -50,6 +49,18 @@ export const pageSliderStyles = StyleSheet.create({
 			return {
 				width: 22,
 			};
+		}
+	},
+	getStylesByThemeIndicator: (theme) => {
+		switch (theme) {
+			case 'lightBlue':
+				return {
+					backgroundColor: colors.light_blue,
+				};
+			case 'white':
+				return {
+					backgroundColor: colors.white,
+				};
 		}
 	},
 });
