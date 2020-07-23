@@ -54,7 +54,7 @@ export default class Chart extends Component {
 							clipContainerComponent={
 								<VictoryClipContainer clipPadding={{ left: 20, right: 20 }} />
 							}
-							zoomDomain={{ x: [1, countForShow] }}
+							zoomDomain={{ x: [1, countForShow] }} //how many elements will range for zoom
 						></VictoryZoomContainer>
 					}
 				>

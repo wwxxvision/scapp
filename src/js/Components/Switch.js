@@ -34,7 +34,6 @@ export default class Switch extends Component {
 				}}
 			>
 				{elements.map((element, index) => {
-					// activeElement
 					const elementIsActive = index === currentIndexTab;
 					const activeStyleElement = elementIsActive
 						? switchStyles.activeElement
