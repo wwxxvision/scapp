@@ -39,10 +39,40 @@ export default class PageSlider extends Component {
 			);
 	};
 
-	render() {
-		const { pages, indicatorsLocation, indicatorsTheme } = this.props;
+	getButtons = () => {
+		const {
+			pages,
+			lastButtonTitle,
+			lastButtonAction,
+			indicatorsTheme,
+		} = this.props;
 		const { selectedIndex } = this.state;
-		const { pressForNextIndex, setSelectedIndex, scrollRef } = this;
+		const { pressForNextIndex } = this;
+		const isLastPage = selectedIndex === pages.length - 1;
+
+		if (isLastPage && lastButtonTitle) {
+			return (
+				<View style={pageSliderStyles.slidesContainer}>
+					<Button
+						theme={indicatorsTheme}
+						action={lastButtonAction}
+						title={lastButtonTitle}
+					/>
+				</View>
+			);
+		}
+
+		return (
+			<View style={pageSliderStyles.slidesContainer}>
+				<Button theme={indicatorsTheme} action={pressForNextIndex} title="Next" />
+			</View>
+		);
+	};
+
+	render() {
+		const { pages, indicatorsLocation, indicatorsTheme, useButtons } = this.props;
+		const { selectedIndex } = this.state;
+		const { setSelectedIndex, scrollRef, getButtons } = this;
 
 		return (
 			<View
@@ -93,9 +123,7 @@ export default class PageSlider extends Component {
 							);
 						})}
 					</View>
-					<View style={pageSliderStyles.slidesContainer}>
-						<Button theme={indicatorsTheme} action={pressForNextIndex} title="next" />
-					</View>
+					{useButtons && getButtons()}
 				</View>
 			</View>
 		);

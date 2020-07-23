@@ -27,7 +27,7 @@ export const variables = {
 	},
 	container: {
 		wrapper: {
-			padding: 15,
+			padding: 25,
 		},
 	},
 	common: {

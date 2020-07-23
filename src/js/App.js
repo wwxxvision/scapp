@@ -200,10 +200,13 @@ const App = () => {
 				<PageSlider
 					indicatorsTheme="lightBlue"
 					indicatorsLocation="center"
+					useButtons={true}
 					pages={[
 						<SelectList type="radio" elements={fakelist} />,
 						<SelectList type="radio" elements={fakelist} />,
 					]}
+					lastButtonTitle="Get started"
+					lastButtonAction={() => false}
 				/>
 				{/* <Header type="tab" theme="lightBlue" tabs={fakeTabs} /> */}
 				<ScrollView
