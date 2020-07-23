@@ -62,7 +62,7 @@ export default class Switch extends Component {
 	}
 }
 
-PageSlider.defaultProps = {
+Switch.defaultProps = {
 	theme: 'selago',
 };
 
