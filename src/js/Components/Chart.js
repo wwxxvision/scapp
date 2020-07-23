@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import PropsTypes from 'prop-types';
-
 import {
 	VictoryBar,
 	VictoryChart,
@@ -10,7 +9,6 @@ import {
 	VictoryClipContainer,
 	VictoryTheme,
 } from 'victory-native';
-import CONSTANTS from '../Constants';
 import { variables } from '../../Styles/Base';
 
 const { colors, fonts } = variables;
@@ -23,6 +21,9 @@ const chartTheme = {
 	},
 	axis: {
 		stroke: colors.orange,
+	},
+	grid: {
+		stroke: colors.brieze,
 	},
 };
 
@@ -61,7 +62,6 @@ export default class Chart extends Component {
 						barWidth={30}
 						cornerRadius={{ topLeft: 10, topRight: 10 }}
 						animate={{
-							duration: 1000,
 							onLoad: { duration: 500 },
 						}}
 						style={{
@@ -73,12 +73,11 @@ export default class Chart extends Component {
 						width={widthContainer}
 						style={{
 							tickLabels: {
-								fontSize: 20,
 								fill: chartTheme.labels.color,
 								fontSize: 9,
 								fontFamily: fonts.popinsLight,
 							},
-							grid: { stroke: '#D6F3F6', strokeWidth: 1 },
+							grid: { stroke: chartTheme.grid.stroke, strokeWidth: 1 },
 							axis: { stroke: chartTheme.axis.stroke, strokeWidth: 4 },
 						}}
 					/>

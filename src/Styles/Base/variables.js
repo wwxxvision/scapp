@@ -19,6 +19,7 @@ export const variables = {
 		mercury: '#E6E6E6',
 		orange: '#FFB54A',
 		selago: '#E3EFFB',
+		brieze: '#D6F3F6',
 	},
 	fonts: {
 		popinsBold: 'Poppins-Bold',

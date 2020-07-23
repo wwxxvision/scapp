@@ -1,0 +1,46 @@
+	      
+          <PageSlider
+            indicatorsTheme="lightBlue"
+            indicatorsLocation="center"
+            useButtons={true}
+            pages={[
+              <SelectList type="radio" elements={fakelist} />,
+              <SelectList type="radio" elements={fakelist} />,
+              <SelectList type="radio" elements={fakelist} />,
+              <SelectList type="radio" elements={fakelist} />,
+              <SelectList type="radio" elements={fakelist} />,
+            ]}
+            lastButtonTitle="Get started"
+            lastButtonAction={() => false}
+				  />
+        	<Tag text="It is a tag" />
+					<Range layoutWidth={200} min={1} max={1000} />
+					<Button theme="danger" title="Button" />
+					<Button theme="lightBlue" title="Button" />
+					<Button theme="darkBlue" title="Button" />
+					<Button theme="white" title="Button" />
+					<Button theme="disable" title="Button" />
+					<Button theme="opacity" title="Button" />
+					<Input label="Test" labelTheme="darkBlue" icon="network" />
+					<Input label="Test" labelTheme="darkBlue" icon="birthDay" />
+					<Input label="Test" labelTheme="darkBlue" icon="user" />
+					<Input
+						label="Test"
+						icon="call"
+						labelTheme="darkBlue"
+						type="phone"
+						country={{ code: 'RU', phoneCode: '+7' }}
+					/>
+					<SelectList type="checkboxes" elements={fakelist} />
+					<SelectList type="radio" elements={fakelist} />
+					<Card
+						title="The test title"
+						text="Lorem ipsum 2144914941 Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941Lorem ipsum 2144914941"
+					/>
+					<List elements={fakelistRef} />
+					<VerifyCode
+						textValidation={CONSTANTS.APP.ERRORS.INVALID_VERIFY_CODE}
+						resendSmsTime={CONSTANTS.APP.RESEND_SMS_TIME}
+					/>
+					<Menu tabs={fakeMenuTabs} />
+					<StepTabs tabs={fakeStepTabs} />
