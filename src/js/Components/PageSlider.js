@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Dimensions } from 'react-native';
+import { View, ScrollView, Dimensions, Animated } from 'react-native';
 import { pageSliderStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
 import Button from './Button';
@@ -11,8 +11,10 @@ export default class PageSlider extends Component {
 		super(props);
 		this.state = {
 			selectedIndex: 0,
+			indicatorMoveX: new Animated.Value(0), // this values for create  moving animation on absis x,
 		};
 		this.scrollRef = React.createRef();
+		this.animationDuration = 500;
 	}
 
 	setSelectedIndex = (ev) => {
@@ -25,13 +27,15 @@ export default class PageSlider extends Component {
 	pressForNextIndex = () => {
 		const { selectedIndex } = this.state;
 		const { pages } = this.props;
+		const { animateIndicatorWhenPressed, scrollRef } = this;
 		const isLastPage = pages.length - 1;
 		if (selectedIndex < isLastPage)
 			this.setState(
 				(prev) => ({ selectedIndex: prev.selectedIndex + 1 }),
 				() => {
 					const { selectedIndex } = this.state;
-					this.scrollRef.current.scrollTo({
+					animateIndicatorWhenPressed();
+					scrollRef.current.scrollTo({
 						animated: true,
 						x: DEVICE_WIDTH * selectedIndex,
 						y: 0,
@@ -70,10 +74,33 @@ export default class PageSlider extends Component {
 		);
 	};
 
+	animateIndicator = (ev) => {
+		const { indicatorMoveX } = this.state;
+		const { x: moveX } = ev.nativeEvent.velocity;
+		const { animationDuration } = this;
+		const dir = moveX >= 0 ? 1 : -1;
+
+		Animated.timing(indicatorMoveX, {
+			toValue: dir * 2.5,
+			duration: animationDuration,
+			useNativeDriver: false,
+		}).start();
+	};
+
+	animateIndicatorWhenPressed = () => {
+		const { indicatorMoveX } = this.state;
+		const { animationDuration } = this;
+		Animated.timing(indicatorMoveX, {
+			toValue: 1 * 2.5,
+			duration: animationDuration,
+			useNativeDriver: false,
+		}).start();
+	};
+
 	render() {
 		const { pages, indicatorsLocation, indicatorsTheme, useButtons } = this.props;
-		const { selectedIndex } = this.state;
-		const { setSelectedIndex, scrollRef, getButtons } = this;
+		const { selectedIndex, indicatorMoveX } = this.state;
+		const { setSelectedIndex, scrollRef, getButtons, animateIndicator } = this;
 
 		return (
 			<View
@@ -86,6 +113,7 @@ export default class PageSlider extends Component {
 					pagingEnabled
 					onMomentumScrollEnd={setSelectedIndex}
 					showsHorizontalScrollIndicator={false}
+					onScroll={animateIndicator}
 					ref={scrollRef}
 				>
 					{pages.map((Page, index) => (
@@ -110,17 +138,22 @@ export default class PageSlider extends Component {
 						{pages.map((page, index) => {
 							const isActiveIndicator = selectedIndex === index;
 							const margins = pageSliderStyles.getIndicatorMargins(index);
-
+							const animationIdicatorOnAbsisX = isActiveIndicator ? indicatorMoveX : 0;
 							return (
-								<View
+								<Animated.View
 									style={{
 										...pageSliderStyles.indicator,
 										...margins,
 										...pageSliderStyles.getStylesByThemeIndicator(indicatorsTheme),
 										...pageSliderStyles.getActiveIndicatorStyles(isActiveIndicator),
+										transform: [
+											{
+												translateX: animationIdicatorOnAbsisX,
+											},
+										],
 									}}
 									key={index}
-								></View>
+								></Animated.View>
 							);
 						})}
 					</View>

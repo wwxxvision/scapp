@@ -7,7 +7,6 @@ export const buttonStyles = StyleSheet.create({
 	container: {
 		borderRadius: 10,
 		...utils.flex_centered,
-		marginTop: 10,
 		elevation: 2,
 	},
 	big: {

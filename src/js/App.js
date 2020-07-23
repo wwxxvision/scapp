@@ -204,6 +204,9 @@ const App = () => {
 					pages={[
 						<SelectList type="radio" elements={fakelist} />,
 						<SelectList type="radio" elements={fakelist} />,
+						<SelectList type="radio" elements={fakelist} />,
+						<SelectList type="radio" elements={fakelist} />,
+						<SelectList type="radio" elements={fakelist} />,
 					]}
 					lastButtonTitle="Get started"
 					lastButtonAction={() => false}

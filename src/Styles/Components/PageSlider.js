@@ -9,9 +9,7 @@ export const pageSliderStyles = StyleSheet.create({
 	},
 	controls: {
 		...utils.flex('column'),
-		position: 'absolute',
 		width: '100%',
-		bottom: 0,
 	},
 	slidesContainer: {
 		padding: container.wrapper.padding,
