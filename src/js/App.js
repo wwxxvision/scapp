@@ -21,6 +21,7 @@ import {
 	Chart,
 } from './Components';
 import CONSTANTS from './Constants/';
+import { variables } from '../Styles/Base';
 
 const App = () => {
 	const fakelist = [
@@ -193,13 +194,16 @@ const App = () => {
 		],
 		fakeSwitchElements = [
 			{
-				title: 'Weekly',
+				title: 'd',
 			},
 			{
-				title: 'Monthly',
+				title: 'w',
 			},
 			{
-				title: 'All Time',
+				title: 'm',
+			},
+			{
+				title: 'y',
 			},
 		],
 		fakeChartProps = {
@@ -294,15 +298,20 @@ const App = () => {
 				/> */}
 				{/* <Header type="tab" theme="lightBlue" tabs={fakeTabs} /> */}
 				<ScrollView
-					contentContainerStyle={{ flexGrow: 1 }}
+					contentContainerStyle={{
+						flexGrow: 1,
+						padding: variables.container.wrapper.padding,
+					}}
 					style={{ flex: 1, position: 'relative' }}
 				>
+					<View style={{ marginTop: 10 }}>
+						<Switch
+							elements={fakeSwitchElements}
+							theme="selago"
+							action={() => false}
+						/>
+					</View>
 					<Chart chartProps={fakeChartProps} />
-					{/* <Switch
-						elements={fakeSwitchElements}
-						theme="selago"
-						action={() => false}
-					/> */}
 					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
 					<Button theme="danger" title="Button" />

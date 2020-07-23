@@ -8,18 +8,19 @@ import {
 	VictoryZoomContainer,
 	VictoryAxis,
 	VictoryClipContainer,
+	VictoryTheme,
 } from 'victory-native';
 import CONSTANTS from '../Constants';
 import { variables } from '../../Styles/Base';
 import { Svg } from 'react-native-svg';
-const { colors } = variables;
+const { colors, fonts } = variables;
 
 const chartTheme = {
 	bar: {
 		fill: colors.light_blue,
 	},
 	labels: {
-		color: colors.light_blue,
+		color: colors.dark_blue,
 	},
 	axis: {
 		stroke: colors.orange,
@@ -27,15 +28,41 @@ const chartTheme = {
 };
 
 export default class Chart extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			widthContainer: 0,
+		};
+	}
 	render() {
 		const { chartProps } = this.props;
-
+		const { widthContainer } = this.state;
 		return (
-			<View>
-				<VictoryChart width={500}>
+			<View
+				onLayout={(ev) =>
+					this.setState({ widthContainer: ev.nativeEvent.layout.width })
+				}
+			>
+				<VictoryChart
+					theme={VictoryTheme.material}
+					width={widthContainer}
+					height={220}
+					containerComponent={
+						<VictoryZoomContainer
+							width={widthContainer}
+							allowZoom={false}
+							clipContainerComponent={
+								<VictoryClipContainer clipPadding={{ left: 20, right: 20 }} />
+							}
+							zoomDomain={{ x: [1, CONSTANTS.APP.CHART.MAX_VIEW_ITEMS] }}
+						></VictoryZoomContainer>
+					}
+				>
 					<VictoryBar
 						barWidth={30}
+						cornerRadius={{ topLeft: 10, topRight: 10 }}
 						animate={{
+							duration: 1000,
 							onLoad: { duration: 500 },
 						}}
 						style={{
@@ -44,9 +71,16 @@ export default class Chart extends Component {
 						{...chartProps}
 					/>
 					<VictoryAxis
-						minDomain={{ y: 0 }}
+						width={widthContainer}
 						style={{
-							axis: { stroke: 'transparent', strokeWidth: 4 },
+							tickLabels: {
+								fontSize: 20,
+								fill: chartTheme.labels.color,
+								fontSize: 9,
+								fontFamily: fonts.popinsLight,
+							},
+							grid: { stroke: '#D6F3F6', strokeWidth: 1 },
+							axis: { stroke: chartTheme.axis.stroke, strokeWidth: 4 },
 						}}
 					/>
 				</VictoryChart>
