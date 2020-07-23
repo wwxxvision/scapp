@@ -42,6 +42,10 @@ export const pageSliderStyles = StyleSheet.create({
 				return {
 					justifyContent: 'center',
 				};
+			case 'left':
+				return {
+					left: container.wrapper.padding,
+				};
 		}
 	},
 	getActiveIndicatorStyles: (isActive) => {

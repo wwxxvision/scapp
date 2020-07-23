@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Dimensions } from 'react-native';
 import { pageSliderStyles } from '../../Styles/Components';
+import PropsTypes from 'prop-types';
 import Button from './Button';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
@@ -129,3 +130,18 @@ export default class PageSlider extends Component {
 		);
 	}
 }
+
+PageSlider.defaultProps = {
+	indicatorsTheme: 'white',
+	indicatorsLocation: 'left',
+	useButtons: true,
+};
+
+PageSlider.PropsTypes = {
+	indicatorsTheme: PropsTypes.string,
+	indicatorsLocation: PropsTypes.string,
+	useButtons: PropsTypes.boolean,
+	pages: PropsTypes.array.isRequired,
+	lastButtonTitle: PropsTypes.string,
+	lastButtonAction: PropsTypes.func,
+};
