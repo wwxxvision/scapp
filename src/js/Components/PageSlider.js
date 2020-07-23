@@ -4,17 +4,22 @@ import { pageSliderStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
 import Button from './Button';
 
-const DEVICE_WIDTH = Dimensions.get('window').width;
-
 export default class PageSlider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			selectedIndex: 0,
 			indicatorMoveX: new Animated.Value(0), // this values for create  moving animation on absis x,
+			DEVICE_WIDTH: Dimensions.get('window').width,
 		};
 		this.scrollRef = React.createRef();
 		this.animationDuration = 500;
+
+		Dimensions.addEventListener('change', () => {
+			this.setState({
+				DEVICE_WIDTH: Dimensions.get('window').width,
+			});
+		});
 	}
 
 	setSelectedIndex = (ev) => {
@@ -25,7 +30,7 @@ export default class PageSlider extends Component {
 	};
 
 	pressForNextIndex = () => {
-		const { selectedIndex } = this.state;
+		const { selectedIndex, DEVICE_WIDTH } = this.state;
 		const { pages } = this.props;
 		const { animateIndicatorWhenPressed, scrollRef } = this;
 		const isLastPage = pages.length - 1;
@@ -99,7 +104,7 @@ export default class PageSlider extends Component {
 
 	render() {
 		const { pages, indicatorsLocation, indicatorsTheme, useButtons } = this.props;
-		const { selectedIndex, indicatorMoveX } = this.state;
+		const { selectedIndex, indicatorMoveX, DEVICE_WIDTH } = this.state;
 		const { setSelectedIndex, scrollRef, getButtons, animateIndicator } = this;
 
 		return (
