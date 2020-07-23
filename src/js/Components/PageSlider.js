@@ -1,40 +1,48 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView, Dimensions } from 'react-native';
 import { pageSliderStyles } from '../../Styles/Components';
-import Carousel from 'react-native-snap-carousel';
-
 import Button from './Button';
+
+const DEVICE_WIDTH = Dimensions.get('window').width;
 
 export default class PageSlider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentSlide: props.pages[0],
-			widthLayout: 0,
-			slide: 0,
+			selectedIndex: 0,
 		};
-	}
-	componentDidMount() {
-		this.increaseWidth();
+		this.scrollRef = React.createRef();
 	}
 
-	increaseWidth = () => {};
-
-	nextSlide = () => {
-		this.setState({
-			slide: this.state.slide + 1,
-			currentSlide: this.props.pages[this.state.slide + 1],
-		});
+	setSelectedIndex = (ev) => {
+		const viewSize = ev.nativeEvent.layoutMeasurement.width;
+		const contentOffset = ev.nativeEvent.contentOffset.x;
+		const selectedIndex = Math.floor(contentOffset / viewSize);
+		this.setState({ selectedIndex });
 	};
 
-	_renderItem = ({ item, index }) => {
-		return <View>{item}</View>;
+	pressForNextIndex = () => {
+		const { selectedIndex } = this.state;
+		const { pages } = this.props;
+		const isLastPage = pages.length - 1;
+		if (selectedIndex < isLastPage)
+			this.setState(
+				(prev) => ({ selectedIndex: prev.selectedIndex + 1 }),
+				() => {
+					const { selectedIndex } = this.state;
+					this.scrollRef.current.scrollTo({
+						animated: true,
+						x: DEVICE_WIDTH * selectedIndex,
+						y: 0,
+					});
+				}
+			);
 	};
 
 	render() {
 		const { pages, indicatorsLocation } = this.props;
-		const { currentSlide, slide } = this.state;
-		const { nextSlide } = this;
+		const { selectedIndex } = this.state;
+		const { pressForNextIndex, setSelectedIndex, scrollRef } = this;
 
 		return (
 			<View
@@ -42,13 +50,25 @@ export default class PageSlider extends Component {
 					...pageSliderStyles.container,
 				}}
 			>
-				<View style={pageSliderStyles.slidesContainer}>
+				<ScrollView
+					horizontal
+					pagingEnabled
+					onMomentumScrollEnd={setSelectedIndex}
+					showsHorizontalScrollIndicator={false}
+					ref={scrollRef}
+				>
 					{pages.map((Page, index) => (
-						<View key={index} style={pageSliderStyles.slide}>
+						<View
+							key={index}
+							style={{
+								...pageSliderStyles.slide(DEVICE_WIDTH),
+								...pageSliderStyles.slidesContainer,
+							}}
+						>
 							{Page}
 						</View>
 					))}
-				</View>
+				</ScrollView>
 				<View style={pageSliderStyles.controls}>
 					<View
 						style={{
@@ -57,7 +77,7 @@ export default class PageSlider extends Component {
 						}}
 					>
 						{pages.map((item, index) => {
-							const isActiveIndicator = slide === index;
+							const isActiveIndicator = selectedIndex === index;
 							const margins = pageSliderStyles.getIndicatorMargins(index);
 
 							return (
@@ -72,7 +92,9 @@ export default class PageSlider extends Component {
 							);
 						})}
 					</View>
-					<Button action={nextSlide} title="next" />
+					<View style={pageSliderStyles.slidesContainer}>
+						<Button action={pressForNextIndex} title="next" />
+					</View>
 				</View>
 			</View>
 		);

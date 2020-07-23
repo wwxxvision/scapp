@@ -5,13 +5,16 @@ const { colors, fonts, common, container } = variables;
 export const pageSliderStyles = StyleSheet.create({
 	container: {
 		height: '100%',
-		flex: 1,
+		width: '100%',
 	},
 	controls: {
 		...utils.flex('column'),
 		position: 'absolute',
 		width: '100%',
 		bottom: container.wrapper.padding,
+	},
+	slidesContainer: {
+		padding: container.wrapper.padding,
 	},
 	indicatorsContainer: {
 		...utils.flex('row'),
@@ -23,13 +26,10 @@ export const pageSliderStyles = StyleSheet.create({
 		backgroundColor: colors.light_blue,
 		borderRadius: 50,
 	},
-	slidesContainer: {
-		width: '100%',
-		...utils.flex('row'),
-	},
-	slide: {
-		width: '100%',
-	},
+	slide: (deviceWidth) => ({
+		height: '100%',
+		width: deviceWidth,
+	}),
 	getIndicatorMargins: (index) => {
 		if (index > 0) {
 			return {

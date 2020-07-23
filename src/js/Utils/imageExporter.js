@@ -466,55 +466,30 @@ import TM from '../../assets/img/flags/TM.svg';
 import TN from '../../assets/img/flags/TN.svg';
 
 import TO from '../../assets/img/flags/TO.svg';
-
 import TR from '../../assets/img/flags/TR.svg';
-
 import TT from '../../assets/img/flags/TT.svg';
-
 import TV from '../../assets/img/flags/TV.svg';
-
 import TW from '../../assets/img/flags/TW.svg';
-
 import TZ from '../../assets/img/flags/TZ.svg';
-
 import UA from '../../assets/img/flags/UA.svg';
-
 import UG from '../../assets/img/flags/UG.svg';
-
 import US from '../../assets/img/flags/US.svg';
-
 import UY from '../../assets/img/flags/UY.svg';
-
 import UZ from '../../assets/img/flags/UZ.svg';
-
 import VA from '../../assets/img/flags/VA.svg';
-
 import VC from '../../assets/img/flags/VC.svg';
-
 import VE from '../../assets/img/flags/VE.svg';
-
 import VG from '../../assets/img/flags/VG.svg';
-
 import VI from '../../assets/img/flags/VI.svg';
-
 import VN from '../../assets/img/flags/VN.svg';
-
 import WF from '../../assets/img/flags/WF.svg';
-
 import VU from '../../assets/img/flags/VU.svg';
-
 import WS from '../../assets/img/flags/WS.svg';
-
 import XK from '../../assets/img/flags/XK.svg';
-
 import YE from '../../assets/img/flags/YE.svg';
-
 import YT from '../../assets/img/flags/YT.svg';
-
 import ZA from '../../assets/img/flags/ZA.svg';
-
 import ZM from '../../assets/img/flags/ZM.svg';
-
 import ZW from '../../assets/img/flags/ZW.svg';
 
 export default {

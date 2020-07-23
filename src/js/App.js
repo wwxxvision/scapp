@@ -197,12 +197,19 @@ const App = () => {
 					backgroundColor: 'white',
 				}}
 			>
-				<Header type="tab" theme="lightBlue" tabs={fakeTabs} />
+				<PageSlider
+					indicatorsLocation="center"
+					pages={[
+						<SelectList type="radio" elements={fakelist} />,
+						<SelectList type="radio" elements={fakelist} />,
+					]}
+				/>
+				{/* <Header type="tab" theme="lightBlue" tabs={fakeTabs} /> */}
 				<ScrollView
 					contentContainerStyle={{ flexGrow: 1 }}
 					style={{ flex: 1, position: 'relative' }}
 				>
-					<Tag text="It is a tag" />
+					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
 					<Button theme="danger" title="Button" />
 					<Button theme="lightBlue" title="Button" />
@@ -232,9 +239,9 @@ const App = () => {
 						resendSmsTime={CONSTANTS.APP.RESEND_SMS_TIME}
 					/>
 					<Menu tabs={fakeMenuTabs} />
-					<StepTabs tabs={fakeStepTabs} />
+					<StepTabs tabs={fakeStepTabs} /> */}
 				</ScrollView>
-				<Nav theme="white" />
+				{/* <Nav theme="white" /> */}
 			</View>
 		</>
 	);
