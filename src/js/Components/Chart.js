@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { chartStyles } from '../../Styles/Components';
+import { View } from 'react-native';
 import PropsTypes from 'prop-types';
+
 import {
 	VictoryBar,
 	VictoryChart,
@@ -12,9 +12,8 @@ import {
 } from 'victory-native';
 import CONSTANTS from '../Constants';
 import { variables } from '../../Styles/Base';
-import { Svg } from 'react-native-svg';
-const { colors, fonts } = variables;
 
+const { colors, fonts } = variables;
 const chartTheme = {
 	bar: {
 		fill: colors.light_blue,
@@ -35,7 +34,7 @@ export default class Chart extends Component {
 		};
 	}
 	render() {
-		const { chartProps } = this.props;
+		const { chartProps, countForShow } = this.props;
 		const { widthContainer } = this.state;
 		return (
 			<View
@@ -54,7 +53,7 @@ export default class Chart extends Component {
 							clipContainerComponent={
 								<VictoryClipContainer clipPadding={{ left: 20, right: 20 }} />
 							}
-							zoomDomain={{ x: [1, CONSTANTS.APP.CHART.MAX_VIEW_ITEMS] }}
+							zoomDomain={{ x: [1, countForShow] }}
 						></VictoryZoomContainer>
 					}
 				>
@@ -88,3 +87,7 @@ export default class Chart extends Component {
 		);
 	}
 }
+
+Chart.PropsTypes = {
+	countForShow: PropsTypes.number.isRequired,
+};

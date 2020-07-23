@@ -311,7 +311,7 @@ const App = () => {
 							action={() => false}
 						/>
 					</View>
-					<Chart chartProps={fakeChartProps} />
+					<Chart countForShow={6} chartProps={fakeChartProps} />
 					{/* <Tag text="It is a tag" />
 					<Range layoutWidth={200} min={1} max={1000} />
 					<Button theme="danger" title="Button" />
