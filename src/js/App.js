@@ -321,6 +321,34 @@ const App = () => {
 					backgroundColor: 'white',
 				}}
 			>
+				<PageSlider
+					indicatorsTheme="lightBlue"
+					indicatorsLocation="center"
+					lastButtonTitle="Get started"
+					lastButtonAction={() => false}
+				>
+					<Intro
+						title="What is it for?"
+						bgName="whatIsItForBg"
+						description="We pay you from 1 cent for each International SMS from your mobile plan."
+					/>
+					,
+					<Intro
+						title="How it works ?"
+						bgName="howItWorks"
+						description="SMS will be sent from your
+							phone in the background and
+							you just get the cashback."
+					/>
+					,
+					<Intro
+						title="How to start ?"
+						bgName="howToStart"
+						description="Just check your mobile number
+							and set the amount of SMS
+							you’d like to sell."
+					/>
+				</PageSlider>
 				{/* <Header type="tab" theme="lightBlue" tabs={fakeTabs} /> */}
 				<ScrollView
 					contentContainerStyle={{
@@ -328,10 +356,8 @@ const App = () => {
 						padding: variables.container.wrapper.padding,
 					}}
 					style={{ flex: 1, position: 'relative' }}
-				>
-					<Intro />
-				</ScrollView>
-				<Nav theme="white" />
+				></ScrollView>
+				{/* <Nav theme="white" /> */}
 			</View>
 		</>
 	);

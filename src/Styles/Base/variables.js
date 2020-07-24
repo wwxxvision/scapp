@@ -41,6 +41,11 @@ export const variables = {
 			lineHeight: 21,
 			includeFontPadding: false,
 		},
+		title: {
+			fontSize: 24,
+			fontFamily: 'Poppins-Bold',
+			color: '#0E3B6E',
+		},
 		errors: {
 			text: {
 				color: '#FF5652',

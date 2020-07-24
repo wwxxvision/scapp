@@ -493,8 +493,13 @@ import YT from '../../assets/img/flags/YT.svg';
 import ZA from '../../assets/img/flags/ZA.svg';
 import ZM from '../../assets/img/flags/ZM.svg';
 import ZW from '../../assets/img/flags/ZW.svg';
+import whatIsItForBg from '../../assets/img/backgrounds/whatisitfor_bg.png';
+import howItWorks from '../../assets/img/backgrounds/howitworks_bg.png';
+import howToStart from '../../assets/img/backgrounds/howtostart_bg.png';
 
 export default {
+	howToStart,
+	howItWorks,
 	user,
 	lock,
 	birthDay,
@@ -1026,4 +1031,5 @@ export default {
 	arrowDown,
 	succsess,
 	failedIcon,
+	whatIsItForBg,
 };
