@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text } from 'react-native';
 import { introStyles } from '../../Styles/Views/Intro';
 import getIconByName from '../Utils/getIconByName';
+import PropsTypes from 'prop-types';
 import { APP } from '../Constants/app';
 
 export default function Intro({ bgName, title, description }) {
@@ -20,3 +21,9 @@ export default function Intro({ bgName, title, description }) {
 		</View>
 	);
 }
+
+Intro.PropsTypes = {
+	bgName: PropsTypes.string.isRequired,
+	title: PropsTypes.string,
+	description: PropsTypes.string,
+};

@@ -33,5 +33,6 @@ export const introStyles = StyleSheet.create({
 		fontFamily: fonts.popins,
 		color: colors.dark_blue,
 		textAlign: 'center',
+		lineHeight: 25,
 	},
 });

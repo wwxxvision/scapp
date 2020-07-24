@@ -348,7 +348,6 @@ const App = () => {
 						/>,
 					]}
 				/>
-				{/* <Header type="tab" theme="lightBlue" tabs={fakeTabs} /> */}
 				<ScrollView
 					contentContainerStyle={{
 						flexGrow: 1,
@@ -356,7 +355,6 @@ const App = () => {
 					}}
 					style={{ flex: 1, position: 'relative' }}
 				></ScrollView>
-				{/* <Nav theme="white" /> */}
 			</View>
 		</>
 	);
