@@ -496,8 +496,10 @@ import ZW from '../../assets/img/flags/ZW.svg';
 import whatIsItForBg from '../../assets/img/backgrounds/whatisitfor_bg.png';
 import howItWorks from '../../assets/img/backgrounds/howitworks_bg.png';
 import howToStart from '../../assets/img/backgrounds/howtostart_bg.png';
+import appIcon from '../../assets/img/app_icon.svg';
 
 export default {
+	appIcon,
 	howToStart,
 	howItWorks,
 	user,

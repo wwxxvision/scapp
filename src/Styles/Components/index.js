@@ -17,6 +17,7 @@ import { pageSliderStyles } from './PageSlider';
 import { switchStyles } from './Switch';
 import { chartStyles } from './Chart';
 import { tableStyles } from './Table';
+import { formStyles } from './Form';
 
 export {
 	buttonStyles,
@@ -38,4 +39,5 @@ export {
 	switchStyles,
 	chartStyles,
 	tableStyles,
+	formStyles,
 };

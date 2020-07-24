@@ -23,7 +23,7 @@ import {
 } from './Components';
 import CONSTANTS from './Constants/';
 import { variables } from '../Styles/Base';
-import { Intro } from './Views';
+import { Intro, Enter } from './Views';
 
 const App = () => {
 	const fakelist = [
@@ -312,7 +312,34 @@ const App = () => {
 					],
 				},
 			],
-		};
+		},
+		fakeFormInputs = [
+			{
+				type: 'phone',
+				icon: 'call',
+				theme: 'cream',
+				label: 'Phone number',
+				labelTheme: 'darkBlue',
+				country: {
+					phoneCode: 7,
+					code: 'RU',
+				},
+			},
+			{
+				type: 'private',
+				icon: 'lock',
+				theme: 'cream',
+				label: 'Password',
+				labelTheme: 'darkBlue',
+			},
+			{
+				type: 'private',
+				icon: 'lock',
+				theme: 'cream',
+				label: 'Confirm password',
+				labelTheme: 'darkBlue',
+			},
+		];
 	return (
 		<>
 			<View
@@ -321,7 +348,7 @@ const App = () => {
 					backgroundColor: 'white',
 				}}
 			>
-				<PageSlider
+				{/* <PageSlider
 					indicatorsTheme="lightBlue"
 					indicatorsLocation="center"
 					lastButtonTitle="Get started"
@@ -347,14 +374,21 @@ const App = () => {
 							you’d like to sell."
 						/>,
 					]}
-				/>
+				/> */}
 				<ScrollView
 					contentContainerStyle={{
 						flexGrow: 1,
 						padding: variables.container.wrapper.padding,
 					}}
 					style={{ flex: 1, position: 'relative' }}
-				></ScrollView>
+				>
+					<Enter
+						theme="white"
+						title="Sing Up"
+						type="singup"
+						description="Register with your phone number"
+					/>
+				</ScrollView>
 			</View>
 		</>
 	);
