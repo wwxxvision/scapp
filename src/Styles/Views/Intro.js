@@ -1,7 +1,7 @@
 import { variables, utils } from '../Base/';
 import { StyleSheet } from 'react-native';
 
-const { colors, fonts, common, container } = variables;
+const { colors, fonts, common, breakPoints } = variables;
 export const introStyles = StyleSheet.create({
 	container: {
 		// paddingTop: container.wrapper.padding + 50,

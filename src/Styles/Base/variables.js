@@ -54,4 +54,9 @@ export const variables = {
 			},
 		},
 	},
+	breakPoints: {
+		phone: {
+			minHeight: 640,
+		},
+	},
 };
