@@ -328,7 +328,7 @@ const App = () => {
 					}}
 					style={{ flex: 1, position: 'relative' }}
 				>
-					<Progress />
+					<Progress percents={25} />
 					{/* <View style={{ marginTop: 10 }}>
 						<Switch
 							elements={fakeSwitchElements}
