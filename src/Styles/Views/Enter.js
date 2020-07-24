@@ -6,6 +6,10 @@ export const enterStyles = StyleSheet.create({
 	titlesBlock: {
 		marginTop: 30,
 	},
+	container: {
+		...utils.flex('column'),
+		position: 'relative',
+	},
 	termOfUseBlock: {
 		...utils.flex('row'),
 	},

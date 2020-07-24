@@ -4,7 +4,7 @@ import getIconByName from '../Utils/getIconByName';
 import PropsTypes from 'prop-types';
 import { formStyles } from '../../Styles/Components';
 import { enterStyles } from '../../Styles/Views/Enter';
-import { Input, CheckBox } from '../Components';
+import { Input, CheckBox, Button } from '../Components';
 
 export default class Enter extends Component {
 	getForm = () => {
@@ -56,6 +56,9 @@ export default class Enter extends Component {
 								</TouchableWithoutFeedback>
 							</View>
 						</View>
+						<View style={{ marginTop: 77 }}>
+							<Button title="Sing Up" theme="white" />
+						</View>
 					</>
 				);
 		}
@@ -64,7 +67,7 @@ export default class Enter extends Component {
 		const { getForm } = this;
 		const { theme, title, description } = this.props;
 		return (
-			<View>
+			<View style={enterStyles.container}>
 				<View>
 					{getIconByName('appIcon', {
 						style: {

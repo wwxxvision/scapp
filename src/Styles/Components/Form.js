@@ -33,6 +33,6 @@ export const formStyles = StyleSheet.create({
 		};
 	},
 	block: {
-		marginTop: 10,
+		marginTop: 16,
 	},
 });
