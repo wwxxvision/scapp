@@ -23,6 +23,7 @@ import {
 } from './Components';
 import CONSTANTS from './Constants/';
 import { variables } from '../Styles/Base';
+import { Intro } from './Views';
 
 const App = () => {
 	const fakelist = [
@@ -320,7 +321,7 @@ const App = () => {
 					backgroundColor: 'white',
 				}}
 			>
-				<Header type="tab" theme="lightBlue" tabs={fakeTabs} />
+				{/* <Header type="tab" theme="lightBlue" tabs={fakeTabs} /> */}
 				<ScrollView
 					contentContainerStyle={{
 						flexGrow: 1,
@@ -328,16 +329,7 @@ const App = () => {
 					}}
 					style={{ flex: 1, position: 'relative' }}
 				>
-					<Progress percents={25} />
-					{/* <View style={{ marginTop: 10 }}>
-						<Switch
-							elements={fakeSwitchElements}
-							theme="selago"
-							action={() => false}
-						/>
-					</View>
-					<Chart countForShow={6} chartProps={fakeChartProps} />
-					<Table headers={fakeTable.headers} data={fakeTable.data} /> */}
+					<Intro />
 				</ScrollView>
 				<Nav theme="white" />
 			</View>

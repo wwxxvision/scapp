@@ -27,6 +27,8 @@ import supportCall from '../../assets/img/support-call_icon.svg';
 import feedback from '../../assets/img/feedback_icon.svg';
 import logout from '../../assets/img/logout_icon.svg';
 import arrowDown from '../../assets/img/arrow-down_icon.svg';
+import succsess from '../../assets/img/succsess_icon.svg';
+import failedIcon from '../../assets/img/failed_icon.svg';
 import AC from '../../assets/img/flags/AC.svg';
 import AD from '../../assets/img/flags/AD.svg';
 import AE from '../../assets/img/flags/AE.svg';
@@ -1022,4 +1024,6 @@ export default {
 
 	ZW,
 	arrowDown,
+	succsess,
+	failedIcon,
 };

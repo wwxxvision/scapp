@@ -3,19 +3,8 @@ import { View, Text, Animated } from 'react-native';
 import { progressStyles } from '../../Styles/Components';
 import PropsTypes from 'prop-types';
 import getIconByName from '../Utils/getIconByName';
-import {
-	Svg,
-	Circle,
-	G,
-	Rect,
-	ClipPath,
-	Defs,
-	Path,
-	TSpan,
-	Polyline,
-} from 'react-native-svg';
-import { variables, utils } from '../../Styles/Base';
-import { Text as TextSvg } from 'react-native-svg';
+import { Svg } from 'react-native-svg';
+import { variables } from '../../Styles/Base';
 import Wave from './Wave';
 
 const { colors, fonts } = variables;
@@ -39,9 +28,93 @@ export default class Progress extends Component {
 		return (svgSize.height * percents) / 100;
 	};
 
+	showBodyByStatus = () => {
+		const { calculatePercentsToPixels, svgSize } = this;
+		const { status } = this.props;
+		switch (status) {
+			case 'waiting':
+				return (
+					<Svg
+						{...svgSize}
+						style={{ position: 'absolute', borderRadius: svgSize.width / 2 }}
+					>
+						<Wave
+							fill={colors.orange}
+							paused={false}
+							options={{
+								height: svgSize.height - calculatePercentsToPixels(),
+								amplitude: 15,
+								speed: 0.15,
+								points: 2,
+							}}
+							width={svgSize.width}
+							height={svgSize.height}
+						/>
+					</Svg>
+				);
+			case 'success':
+				return (
+					<View
+						style={{
+							width: svgSize.width,
+							height: svgSize.height,
+							position: 'absolute',
+							zIndex: 3000,
+							borderRadius: svgSize.width,
+							...progressStyles.successCircle,
+							overflow: 'hidden',
+						}}
+					></View>
+				);
+			case 'failed':
+				return (
+					<View
+						style={{
+							width: svgSize.width,
+							height: svgSize.height,
+							position: 'absolute',
+							zIndex: 3000,
+							borderRadius: svgSize.width,
+							...progressStyles.failedCircle,
+							overflow: 'hidden',
+						}}
+					></View>
+				);
+		}
+	};
+
+	showInfoByStatus = () => {
+		const { status, percents, statusText } = this.props;
+
+		switch (status) {
+			case 'waiting':
+				return (
+					<>
+						<Text style={progressStyles.percents}>{percents}%</Text>
+						<Text style={progressStyles.statusText}>{statusText}</Text>
+					</>
+				);
+			case 'success':
+				return (
+					<View style={{ flex: 1, alignItems: 'center' }}>
+						{getIconByName('succsess')}
+						<Text style={progressStyles.statusText}>{statusText}</Text>
+					</View>
+				);
+
+			case 'failed':
+				return (
+					<View style={{ flex: 1, alignItems: 'center' }}>
+						{getIconByName('failedIcon')}
+						<Text style={progressStyles.statusText}>{statusText}</Text>
+					</View>
+				);
+		}
+	};
+
 	render() {
-		const { svgSize, calculatePercentsToPixels } = this;
-		const { percents } = this.props;
+		const { svgSize, showBodyByStatus, showInfoByStatus } = this;
+
 		return (
 			<View>
 				<View
@@ -68,8 +141,7 @@ export default class Progress extends Component {
 								...progressStyles.infoBlock,
 							}}
 						>
-							<Text style={progressStyles.percents}>75%</Text>
-							<Text style={progressStyles.statusText}>SMS sent</Text>
+							{showInfoByStatus()}
 						</View>
 					</View>
 					<View
@@ -83,25 +155,15 @@ export default class Progress extends Component {
 							overflow: 'hidden',
 						}}
 					></View>
-					<Svg
-						{...svgSize}
-						style={{ position: 'absolute', borderRadius: svgSize.width / 2 }}
-					>
-						<Wave
-							fill={colors.orange}
-							paused={false}
-							options={{
-								height: svgSize.height - calculatePercentsToPixels(),
-								amplitude: 15,
-								speed: 0.15,
-								points: 2,
-							}}
-							width={svgSize.width}
-							height={svgSize.height}
-						/>
-					</Svg>
+					{showBodyByStatus()}
 				</View>
 			</View>
 		);
 	}
 }
+
+Progress.PropsTypes = {
+	percents: PropsTypes.number,
+	status: PropsTypes.string,
+	statusText: PropsTypes.string,
+};

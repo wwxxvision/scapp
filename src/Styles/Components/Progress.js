@@ -27,11 +27,24 @@ export const progressStyles = StyleSheet.create({
 		fontFamily: fonts.popins,
 		color: colors.white,
 		...utils.disableFontPadding,
+		marginTop: 12,
 	},
 	percents: {
 		fontSize: 41,
 		fontFamily: fonts.popinsSemiBold,
 		color: colors.white,
 		...utils.disableFontPadding,
+	},
+	successCircle: {
+		backgroundColor: colors.green,
+		opacity: 0.9,
+		borderColor: colors.dark_blue,
+		borderWidth: 17,
+	},
+	failedCircle: {
+		backgroundColor: colors.red_dark,
+		opacity: 0.9,
+		borderColor: colors.dark_blue,
+		borderWidth: 17,
 	},
 });
