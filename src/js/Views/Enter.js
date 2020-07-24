@@ -56,9 +56,9 @@ export default class Enter extends Component {
 								</TouchableWithoutFeedback>
 							</View>
 						</View>
-						<View style={{ marginTop: 77 }}>
+						{/* <View style={{ marginTop: 77 }}>
 							<Button title="Sing Up" theme="white" />
-						</View>
+						</View> */}
 					</>
 				);
 			case 'login':
@@ -107,15 +107,15 @@ export default class Enter extends Component {
 					})}
 				</View>
 
-				<View style={enterStyles.titlesBlock}>
+				<View style={{ ...enterStyles.titlesBlock, flex: 1 }}>
 					<Text style={{ ...formStyles.title(theme) }}>{title}</Text>
 					<Text style={{ ...formStyles.description(theme) }}>{description}</Text>
 				</View>
 
-				<View>{getForm()}</View>
-				{/* <View style={enterStyles.submitButton}>
+				<View style={{ flex: 2 }}>{getForm()}</View>
+				<View style={{ flex: 1, marginTop: 77 }}>
 					<Button title="Login" theme="white" />
-				</View> */}
+				</View>
 			</View>
 		);
 	}
