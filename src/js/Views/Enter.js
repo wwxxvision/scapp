@@ -61,13 +61,43 @@ export default class Enter extends Component {
 						</View>
 					</>
 				);
+			case 'login':
+				return (
+					<>
+						<View style={formStyles.block}>
+							<Input
+								type="phone"
+								icon="call"
+								theme="cream"
+								label="Phone number"
+								labelTheme="white"
+								country={{
+									phoneCode: 7,
+									code: 'RU',
+								}}
+							/>
+						</View>
+						<View style={formStyles.block}>
+							<Input
+								type="private"
+								icon="lock"
+								theme="cream"
+								label="Password"
+								labelTheme="white"
+							/>
+						</View>
+						<View style={formStyles.block}>
+							<Text style={enterStyles.forgotPasswordText}>Forgot Password?</Text>
+						</View>
+					</>
+				);
 		}
 	};
 	render() {
 		const { getForm } = this;
 		const { theme, title, description } = this.props;
 		return (
-			<View style={enterStyles.container}>
+			<View style={{ ...enterStyles.container(theme) }}>
 				<View>
 					{getIconByName('appIcon', {
 						style: {
@@ -83,6 +113,9 @@ export default class Enter extends Component {
 				</View>
 
 				<View>{getForm()}</View>
+				{/* <View style={enterStyles.submitButton}>
+					<Button title="Login" theme="white" />
+				</View> */}
 			</View>
 		);
 	}

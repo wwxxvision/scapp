@@ -9,8 +9,9 @@ export const formStyles = StyleSheet.create({
 		switch (theme) {
 			case 'lightBlue':
 				themeStyles = {
-					color: colors.light_blue,
+					color: colors.white,
 				};
+				break;
 		}
 		return {
 			...common.title,
@@ -23,7 +24,7 @@ export const formStyles = StyleSheet.create({
 		switch (theme) {
 			case 'lightBlue':
 				themeStyles = {
-					color: colors.light_blue,
+					color: colors.white,
 				};
 		}
 		return {

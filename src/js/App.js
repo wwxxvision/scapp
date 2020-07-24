@@ -378,7 +378,6 @@ const App = () => {
 				<ScrollView
 					contentContainerStyle={{
 						flexGrow: 1,
-						padding: variables.container.wrapper.padding,
 					}}
 					style={{ flex: 1, position: 'relative' }}
 				>
@@ -388,6 +387,12 @@ const App = () => {
 						type="singup"
 						description="Register with your phone number"
 					/>
+					{/* <Enter
+						theme="lightBlue"
+						title="Login"
+						type="login"
+						description="Register with your phone number"
+					/> */}
 				</ScrollView>
 			</View>
 		</>

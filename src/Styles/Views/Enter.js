@@ -1,14 +1,27 @@
 import { variables, utils } from '../Base/';
 import { StyleSheet } from 'react-native';
 
-const { colors, fonts, common, breakPoints } = variables;
+const { colors, fonts, common, breakPoints, container } = variables;
 export const enterStyles = StyleSheet.create({
 	titlesBlock: {
 		marginTop: 30,
 	},
-	container: {
-		...utils.flex('column'),
-		position: 'relative',
+	container: (theme) => {
+		let themeStyles = theme;
+		switch (theme) {
+			case 'lightBlue':
+				themeStyles = {
+					backgroundColor: colors.light_blue,
+				};
+				break;
+		}
+		return {
+			...utils.flex('column'),
+			position: 'relative',
+			padding: container.wrapper.padding,
+			...themeStyles,
+			minHeight: '100%',
+		};
 	},
 	termOfUseBlock: {
 		...utils.flex('row'),
@@ -28,5 +41,18 @@ export const enterStyles = StyleSheet.create({
 		fontFamily: fonts.popinsBold,
 		color: colors.dark_blue,
 		...utils.disableFontPadding,
+	},
+	forgotPasswordText: {
+		color: colors.white,
+		fontSize: 14,
+		fontFamily: fonts.popins,
+		...utils.disableFontPadding,
+		textDecorationLine: 'underline',
+	},
+	submitButton: {
+		position: 'absolute',
+		width: '100%',
+		bottom: container.wrapper.padding,
+		left: container.wrapper.padding,
 	},
 });
