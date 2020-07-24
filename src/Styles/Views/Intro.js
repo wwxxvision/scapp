@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native';
 const { colors, fonts, common, breakPoints } = variables;
 export const introStyles = StyleSheet.create({
 	container: {
-		// paddingTop: container.wrapper.padding + 50,
 		...utils.flex('column'),
 		alignItems: 'center',
 	},
@@ -16,8 +15,8 @@ export const introStyles = StyleSheet.create({
 		marginTop: 29,
 	},
 	backgroundsSizes: {
-		height: 232,
-		width: 232,
+		height: 200,
+		width: 200,
 	},
 	appName: {
 		fontSize: 20,

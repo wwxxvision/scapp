@@ -5,7 +5,6 @@ const { colors, fonts, common, container } = variables;
 export const pageSliderStyles = StyleSheet.create({
 	container: {
 		height: '100%',
-		width: '100%',
 	},
 	controls: {
 		...utils.flex('column'),

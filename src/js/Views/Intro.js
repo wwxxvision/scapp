@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { introStyles } from '../../Styles/Views/Intro';
 import getIconByName from '../Utils/getIconByName';
 import { APP } from '../Constants/app';
