@@ -328,7 +328,8 @@ const App = () => {
 					}}
 					style={{ flex: 1, position: 'relative' }}
 				>
-					<View style={{ marginTop: 10 }}>
+					<Progress />
+					{/* <View style={{ marginTop: 10 }}>
 						<Switch
 							elements={fakeSwitchElements}
 							theme="selago"
@@ -336,7 +337,7 @@ const App = () => {
 						/>
 					</View>
 					<Chart countForShow={6} chartProps={fakeChartProps} />
-					<Table headers={fakeTable.headers} data={fakeTable.data} />
+					<Table headers={fakeTable.headers} data={fakeTable.data} /> */}
 				</ScrollView>
 				<Nav theme="white" />
 			</View>
