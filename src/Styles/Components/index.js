@@ -16,6 +16,7 @@ import { verifyCodeStyles } from './VerifyCode';
 import { pageSliderStyles } from './PageSlider';
 import { switchStyles } from './Switch';
 import { chartStyles } from './Chart';
+import { tableStyles } from './Table';
 
 export {
 	buttonStyles,
@@ -36,4 +37,5 @@ export {
 	pageSliderStyles,
 	switchStyles,
 	chartStyles,
+	tableStyles,
 };

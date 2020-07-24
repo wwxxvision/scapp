@@ -20,6 +20,7 @@ export const variables = {
 		orange: '#FFB54A',
 		selago: '#E3EFFB',
 		brieze: '#D6F3F6',
+		mouse: '#E5E5E5',
 	},
 	fonts: {
 		popinsBold: 'Poppins-Bold',

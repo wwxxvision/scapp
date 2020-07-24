@@ -19,6 +19,7 @@ import {
 	PageSlider,
 	Switch,
 	Chart,
+	Table,
 } from './Components';
 import CONSTANTS from './Constants/';
 import { variables } from '../Styles/Base';
@@ -273,6 +274,43 @@ const App = () => {
 					y: 2,
 				},
 			],
+		},
+		fakeTable = {
+			headers: ['Period', 'SMS', 'Rate', 'Sum'],
+			data: [
+				{
+					row: [
+						{
+							value: 'July 2020',
+						},
+						{
+							value: 1200,
+						},
+						{
+							value: '$20.25',
+						},
+						{
+							value: '$0.50',
+						},
+					],
+				},
+				{
+					row: [
+						{
+							value: 'July 2021',
+						},
+						{
+							value: 1200,
+						},
+						{
+							value: '$20.25',
+						},
+						{
+							value: '$0.50',
+						},
+					],
+				},
+			],
 		};
 	return (
 		<>
@@ -298,6 +336,7 @@ const App = () => {
 						/>
 					</View>
 					<Chart countForShow={6} chartProps={fakeChartProps} />
+					<Table headers={fakeTable.headers} data={fakeTable.data} />
 				</ScrollView>
 				<Nav theme="white" />
 			</View>

@@ -16,6 +16,7 @@ import VerifyCode from './VerifyCode';
 import PageSlider from './PageSlider';
 import Switch from './Switch';
 import Chart from './Chart';
+import Table from './Table';
 
 export {
 	Header,
@@ -36,4 +37,5 @@ export {
 	PageSlider,
 	Switch,
 	Chart,
+	Table,
 };
